@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algoritmo | Exercicio 8</title>
+</head>
+
+<body>
+  <h2>Uma nutricionista e precisa ajudar seus pacientes a não engordarem tanto
+    na quarentena do Covid19. Ajude ela criando um programa</h2>
+
+  <h3>Informe quantos pães franceses você tem comido por dia</h3>
+  <input id="id_pao" /><br /><br />
+  <h3>Informe quantos pacotes de bolacha você tem comido por dia</h3>
+  <input id="id_bolacha" /><br /><br />
+  <h3>Informe quantos copos de achocolatado você tem bebido por dia</h3>
+  <input id="id_copo" /><br /><br />
+  <button onclick="calcularCalorias()">Verficar calorias</button><br />
+  <div id="div_screen"></div>
+</body>
+
+</html>
+<script>
+  function calcularCalorias() {
+    var pao = Number(id_pao.value);
+    var bolacha = Number(id_bolacha.value);
+    var achocolatado = Number(id_copo.value);
+    var calculoCalorias = pao * 50 + bolacha * 80 + achocolatado * 70;
+
+    if (calculoCalorias < 200) {
+      div_screen.innerHTML = "Parabéns, vai sair em forma da quarentena";
+    } else if (calculoCalorias < 400) {
+      div_screen.innerHTML =
+        'Cuidado, vai ficar mais "fofinho(a)" após quarentena';
+    } else {
+      div_screen.innerHTML =
+        "Bom, acho que muitos não vão te reconhecer após a quarentena";
+    }
+  }
+</script>

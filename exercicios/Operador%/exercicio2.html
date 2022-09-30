@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algoritmo | Exercício2</title>
+  </head>
+  <body>
+    <h2>Informe a sua altura</h2>
+    <input id="in_altura" />
+    <br /><br />
+
+    <br /><br />
+    <button onclick="verificarAltura()">Analisar para esportes</button>
+    <div id="div_screen"></div>
+  </body>
+</html>
+
+<script>
+  function verificarAltura() {
+    var altura = Number(in_altura.value);
+    var verificarAlturaPiloto = altura < 1.60;
+    var verificarAlturaJogador = altura > 1.60 && altura <= 1.85;
+    if (verificarAlturaVelejador) {
+      div_screen.innerHTML =
+        "Pode tentar ser piloto(a) de corrida,  Pode tentar ser velejador(a)";
+    }
+    else{
+      if (verificarAlturaJogador) {
+      div_screen.innerHTML =
+        "Pode tentar ser piloto(a) de corrida,  Pode tentar ser velejador(a), Pode tentar ser jogador de futebol ou handbol";
+    }
+    }
+  }
+</script>

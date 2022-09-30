@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 12 - Condicional</title>
+</head>
+<body>
+
+   Informe o peso do elevador   
+  <input type="text" id="in_input1"><br><br>
+
+  <button onclick="calcularPesoElevador()">Ligar elevador</button>
+</body>
+</html>
+
+<script>    
+
+  function calcularPesoElevador(){
+    var pesoElevador = Number(in_input1.value);
+    if(pesoElevador<500){
+      alert("Elevador vai se mover"); 
+    }
+    if(pesoElevador>=500)
+    alert("Alguem precisa descer do elevador"); 
+
+  }
+</script>

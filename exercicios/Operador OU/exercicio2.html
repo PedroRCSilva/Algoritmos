@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operador || - Exercício 2</title>
+</head>
+<body>
+  <h2> No processo seletivo da faculdade Mentes Brilhantes, o aluno é aprovado se sua nota no ENEM foi a partir de 800 ou se ele fizer o vestibular interno e tirar pelo menos 700. Crie um programa que será usado por essa instituição. </h2>
+
+  <h2>Informe a sua nota do ENEM</h2>
+  <input type="text" id="id_nota">
+  <br><br>
+
+  <h2>Informe a sua nota no vestibular interno</h2>
+  <input type="text" id="id_notaVestibular">
+  <br><br>
+
+  <button onclick="analisandoNota()">Avaliação</button>
+</body>
+</html>
+<script>
+  function analisandoNota(){
+    var nota = id_nota.value;
+    var notaVestibular = id_notaVestibular.value;
+
+    if(nota >= 800 || notaVestibular>=700){
+      alert('Parabéns! Aprovado')
+    }
+    else{
+      alert('Tente semestre que vem!');
+    }
+  }
+</script>

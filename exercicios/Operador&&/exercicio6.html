@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador && | Exercício 6</title>
+</head>
+
+<body>
+    <h2>Informe a nota do aluno</h2>
+    <br>
+    <input id="id_nota">
+
+    <button onclick="verificarNota()">Avaliar aluno</button>
+
+</body>
+
+</html>
+<script>
+    function verificarNota() {
+        var nota = Number(id_nota.value);
+
+
+        if(nota>=8.5 && nota<=10) {
+            alert("Aluno Exemplar");
+        }
+        else if(nota>=6 && nota<8.5){
+            alert("Aluno Comum e aprovado");
+        }
+        else{
+            alert("Aluno não aprovado");
+        }
+    }
+</script>

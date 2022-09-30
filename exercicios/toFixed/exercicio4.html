@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Informe o seu peso</h2>
+  <input type="text" id="id_peso"><br>
+  <h2>Informe a sua altura</h2>
+  <input type="text" id="id_altura">
+  <br><br>
+  <button onclick="realizarImcHomem()">IMC HOMEM</button><br><br>
+  <button onclick="realizarImcMulher()">IMC MULHER</button><br><br>
+
+  <div id="id_screen"></div>
+</body>
+</html>
+<script>
+  function realizarImcHomem(){
+    var peso = Number(id_peso.value);
+    var altura=Number(id_altura.value);
+    var calculo=(peso/(altura**2)).toFixed(2);
+    id_screen.innerHTML=`O seu indice de massa corporal é: ${calculo}`;
+  }
+
+  function realizarImcMulher(){
+    var peso = Number(id_peso.value);
+    var altura=Number(id_altura.value);
+    var calculo=(peso/(altura**2)*0.90).toFixed(2);
+    id_screen.innerHTML=`O seu indice de massa corporal é: ${calculo}`;
+  }
+
+</script>

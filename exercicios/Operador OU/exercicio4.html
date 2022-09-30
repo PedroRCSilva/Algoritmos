@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operador || - Exercício 4</title>
+</head>
+
+<body>
+  <h2> . Crie um programa que avalie a possibilidade de um pagamento da compra ser parcelado ou não</h2>
+
+  <select id="sel_formaPagamento" onchange="analisandoPagamento()">
+    <option value="">Selecione a forma de pagamento</option>
+    <option value="Dinheiro">Dinheiro</option>
+    <option value="Debito">Cartão de débito</option>
+    <option value="Credito">Cartão de crédito</option>
+    <option value="Boleto">Boleto</option>
+  </select>
+
+</body>
+
+</html>
+<script>
+  function analisandoPagamento() {
+    var pagamento = sel_formaPagamento.value;
+
+    if (pagamento == 'Dinheiro' || pagamento == 'Debito') {
+      alert("Você terá que pagar a vista")
+    }
+    else {
+      alert('Pagamento poderá ser parcelado');
+    }
+  }
+</script>

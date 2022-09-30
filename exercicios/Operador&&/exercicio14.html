@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operador && | Exercício 14 (DESAFIO)</title>
+</head>
+
+<body id="corpo">
+  <h2>Informe altura incial do piloto para participar das corridas:</h2>
+  <input id="id_inicialPiloto" />
+  <br/>
+  <h2>Informe altura final do piloto para participar das corridas:</h2>
+  <input id="id_finalPiloto" />
+  <br />
+  <h2>
+    Informe altura incial do jogador de basquete para participar dos
+    campeonatos:
+  </h2>
+  <input id="id_inicialBasquete" />
+  <br />
+  <h2>Informe altura final do jogador de basquete para participar dos campeonatos:</h2>
+  <input id="id_finalBasquete" />
+  <br /> <br />
+  <button onclick="proximaFase()">Selecionar</button>
+</body>
+
+</html>
+<script>
+
+  var alturaInicialPiloto = 0;
+  var alturaFinalPiloto = 0;
+  var alturaInicialBasquete = 0;
+  var alturaFinalBasquete = 0;
+
+  function proximaFase() {
+    alturaInicialPiloto = Number(id_inicialPiloto.value);
+    alturaFinalPiloto = Number(id_finalPiloto.value);
+    alturaInicialBasquete = Number(id_inicialBasquete.value);
+    alturaFinalBasquete = Number(id_finalBasquete.value);
+
+    if (alturaInicialPiloto >= 1 && alturaFinalPiloto > alturaInicialPiloto && alturaInicialBasquete > 1.5 && alturaFinalBasquete > alturaInicialBasquete) {
+      corpo.innerHTML =
+        `<h1>Processo de seleção de novos atletas</h1> <h2>Critério de seleção de piloto - altura ${alturaInicialPiloto} até ${alturaFinalPiloto}</h2><h2>Critério de seleção do jogador de Basquete - altura ${alturaInicialBasquete} até ${alturaFinalBasquete}</h2>   <h2>Informe o nome do candidato<h2><input id="id_nome" /><br /><h2>Informe a altura do candidato</h2><br><input id="id_altura" /><br><br> <select id="sel_opt" onchange="verificarAltura()"><option value="B">Basquete</option><option value="P">Piloto</option></select> <div id="id_screen"></div>`;
+
+    }
+    else {
+      alert("Não seguir em frente")
+    }
+  }
+  function verificarAltura() {
+    var modalidade = sel_opt.value;
+    var altura = id_altura.value;
+    var nome = id_nome.value;
+
+    if (modalidade == 'B') {
+      if (altura >= alturaInicialBasquete && altura <= alturaFinalBasquete) {
+        id_screen.innerHTML = `O candidato ${nome} com altura de ${altura} participará do processo de seleção de jogador de basquete`;
+      }
+
+      else {
+        id_screen.innerHTML = `Infelizmente o candidato ${nome} com altura de ${altura} não atende os requisitos`;
+      }
+    }
+
+    else {
+      if (altura >= alturaInicialPiloto && altura <= alturaFinalPiloto) {
+        id_screen.innerHTML = `O candidato ${nome} com altura de ${altura} participará do processo de seleção de piloto`;
+      }
+      else {
+        id_screen.innerHTML = `Infelizmente o candidato ${nome} com altura de ${altura} não atende os requisitos`;
+      }
+    }
+  }
+</script>

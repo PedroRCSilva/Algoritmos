@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmo | Exercicio 5</title>
+</head>
+<body>
+  <h2>Classificando o Aluno</h2>
+
+  <h3>Informe a nota do aluno </h3>
+  <input type="number" id="id_nota"><br><br>
+  <button onclick="analisarNota()">Analisar Temperatura</button><br>
+<div id="div_screen"></div>
+
+
+</body>
+</html>
+<script>
+function analisarNota(){
+  var nota = Number(id_nota.value);
+
+  if(nota<5){
+    div_screen.innerHTML="Aluno precisa de muita ajuda";
+  }
+  else if(nota<=7){
+    div_screen.innerHTML="Aluno na média";
+  }
+  else if(nota<9.5){
+    div_screen.innerHTML="Aluno na acima da média";
+  }
+  else{
+    div_screen.innerHTML="Aluno fora da curva";
+  }
+}
+</script>

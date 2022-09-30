@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador && | Exercício 9</title>
+</head>
+
+<body>
+    <h2>Informe o seu login</h2>
+    <br>
+    <input id="id_login" type="email">
+    <br>
+    <h2>Informe a sua senha</h2>
+    <br>
+    <input id="id_password" type="password">
+
+    <h2>Informe o código de segurança</h2>
+    <br>
+    <input id="id_cod">
+
+    <button onclick="verificarLogin()">Entrar</button>
+
+</body>
+
+</html>
+<script>
+    function verificarLogin() {
+        var login = id_login.value;
+        var senha = id_password.value;
+        var codigo = id_cod.value;
+
+        if(login=='SPTECH' && senha=='digital' && codigo==123) {
+            alert("Usuario autenticado com sucesso");
+        }
+        else {
+            alert("Falha na autenticação");
+        }
+      
+    }
+</script>

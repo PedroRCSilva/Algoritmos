@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operador && | Exercício 10</title>
+  </head>
+
+  <body>
+    <h2>Informe altura incial do piloto para participar das corridas</h2>
+    <br />
+    <input id="id_inicial" />
+    <br />
+    <h2>Informe altura final do piloto para participar das corridas</h2>
+    <br />
+    <input id="id_final" />
+    <br />
+
+    <h2>Informe o nome do piloto</h2>
+    <input id="id_nome" />
+    <br />
+    <h2>Informe a altura do piloto</h2>
+    <input id="id_altura" />
+
+    <div id="id_screen"></div>
+
+    <button onclick="verificarAlturaPiloto()">Cadastrar</button>
+  </body>
+</html>
+<script>
+  function verificarAlturaPiloto() {
+    var alturaInicial = Number(id_inicial.value);
+    var alturaFinal = Number(id_final.value);
+    var altura = Number(id_altura.value);
+    var nome = id_nome.value;
+
+    if (alturaInicial > 1 && alturaFinal > alturaInicial) {
+      if (altura >= alturaInicial && altura <= alturaFinal) {
+        id_screen.innerHTML = `O candidato ${nome} com altura de ${altura} participará do processo de seleção de piloto`;
+      } else {
+        id_screen.innerHTML = `Infelizmente o candidato ${nome} com altura de ${altura} não participará do processo de seleção de piloto`;
+      }
+    } else {
+      alert("NÃO SEGUIR EM FRENTE");
+    }
+  }
+</script>

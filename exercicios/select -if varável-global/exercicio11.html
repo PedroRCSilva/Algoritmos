@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algoritmo | Exercicio 11</title>
+</head>
+
+<body>
+  <h2>Analisando as estações</h2>
+
+<select id="id_mes" onchange="analisarEstacao()">
+  <option value="">Selecione um Estação</option>
+  <option value="Verão">Janeiro</option>
+  <option value="Verão">Fevereiro</option>
+  <option value="Outono">Março</option>
+  <option value="Outono">Abril</option>
+  <option value="Outono">Maio</option>
+  <option value="Inverno">Junho</option>
+  <option value="Inverno">Julho</option>
+  <option value="Inverno">Agosto</option>
+  <option value="Primavera">Setembro</option>
+  <option value="Primavera">Outubro</option>
+  <option value="Primavera">Novembro</option>
+  <option value="Verão">Dezembro</option>
+</select>
+    <br><br>
+  <img src='' alt="Imagem das estação correspondente" id="imgEstacao" width="300px">
+</body>
+
+</html>
+<script>
+  function analisarEstacao() {
+    var mes = id_mes.value;
+    
+    if (mes=='Primavera') {
+      imgEstacao.src='https://www.infoescola.com/wp-content/uploads/2008/10/primavera.jpg';
+    } else if (mes== 'Outono') {
+      imgEstacao.src='https://www.lopes.com.br/blog/wp-content/uploads/2017/03/capa.jpg';
+    } else if(mes=='Verão') {
+      imgEstacao.src='https://catracalivre.com.br/wp-content/uploads/2020/10/unnamed-12.jpg';
+    }
+    else {
+      imgEstacao.src='https://www.infoescola.com/wp-content/uploads/2008/10/inverno-450x334.jpg';
+    }
+
+  }
+</script>

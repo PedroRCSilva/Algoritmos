@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador && | Exercício 5</title>
+</head>
+
+<body>
+    <h2>  A Netflix é uma das plataformas que mais consomem e transferem dados em alguns países – o que cria alguns horários críticos. Entre 19h e 21h, por exemplo, é comum que ocorram instabilidades na plataforma, porque é o período em que mais há gente assistindo ao conteúdo.
+        Sabendo disso, crie um programa </h2>
+
+    <h2>Informe o horario que você custuma assistir Netflix</h2>
+    <br>
+    <input id="id_hora" placeholder="Informe a hora somente">
+
+    <button onclick="verificarHorario()">Ver recomendação</button>
+    <div id="id_screen"></div>
+
+</body>
+
+</html>
+<script>
+    function verificarHorario() {
+        var netflix = Number(id_hora.value);
+
+        if (netflix>=19 && netflix<=21) {
+            id_screen.innerHTML="Não é recomendavel que você assista sua série favorita no horario"+netflix;
+        }
+        else {
+            id_screen.innerHTML=`O horário ${netflix} é adequado para assistir a sua série favorita`;
+        }
+    }
+</script>

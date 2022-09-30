@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algoritmo | Exercicio 12</title>
+</head>
+
+<body>
+  <h2>Gastar e Guardar dinheiro</h2>
+
+  <button onclick="guardarDinheiro()">Guardar R$5</button>
+  <button onclick="gastarDinheiro()">Gastar R$10</button>
+  <div id="id_screen"></div>
+</body>
+
+</html>
+<script>
+  var valorEstoque = 0;
+  function guardarDinheiro() {
+    valorEstoque += 5;
+    id_screen.innerHTML = `Valor guardado ${valorEstoque}<br>`;
+    if (valorEstoque <= -20) {
+      id_screen.innerHTML += "<p style=color:red>Finanças em perigo</p>Seu nome vai ficar sujo, hein?";
+    }
+    else if (valorEstoque < 0) {
+      id_screen.innerHTML += "<p style='color:red'>Finanças em perigo!</p>";
+
+    }
+    else if (valorEstoque < 100) {
+      id_screen.innerHTML += "<p style='color:blue'>Finanças OK!</p>";  
+    }
+    else {
+      id_screen.innerHTML += '#Ostentação';
+    }
+  }
+
+  function gastarDinheiro() {
+    valorEstoque -= 10;
+    id_screen.innerHTML = `Valor guardado ${valorEstoque}<br>`;
+    if (valorEstoque <= -20) {
+      id_screen.innerHTML += "<p style='color:red'>Finanças em perigo</p>Seu nome vai ficar sujo, hein?";
+    }
+    else if (valorEstoque < 0) {
+      id_screen.innerHTML += "<p style='color:red'>Finanças em perigo!</p>";
+
+    }
+    else if (valorEstoque < 100) {
+      id_screen.innerHTML += "<p style='color:blue'>Finanças OK!</p>";  
+    }
+    else {
+      id_screen.innerHTML += '#Ostentação';
+    }
+  }
+</script>

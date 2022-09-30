@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador && | Exercício 4</title>
+</head>
+
+<body>
+    <h2> Crie um programa que verifique se o usuário é vegano ou não.</h2>
+
+    <h2>Informe quais são suas refeições em um dia</h2>
+    <select id="id_cafe" onchange="verificarVeganismo()">
+        <option value="">Café da manhã</option>
+        <option value="ovos">Ovos</option>
+        <option value="leite">Leite de Arroz</option>
+        <option value="bacon">Bacon</option>
+    </select>
+
+    <select id="id_almoco" onchange="verificarVeganismo()">
+        <option value="">Informe almoço</option>
+        <option value="bife">Bife</option>
+        <option value="hamburguer_soja">Hamburguer da Soja</option>
+        <option value="frango">Frango</option>
+    </select>
+
+    <select id="id_janta" onchange="verificarVeganismo()">
+        <option value="">Informe a janta</option>
+        <option value="picanha">Picanha de Soja</option>
+        <option value="cupim">Cupim</option>
+        <option value="coracao">Coração</option>
+    </select>
+
+    <button onclick="verificarVeganismo()">Sou vegano</button>
+
+</body>
+
+</html>
+<script>
+    function verificarVeganismo() {
+        var cafe = id_cafe.value;
+        var almoco = id_almoco.value;
+        var janta = id_janta.value;
+        if (cafe=='leite' && almoco=='hamburguer_soja' && janta=='picanha') {
+            alert("Sim, você é vegano!");
+        }
+        else {
+            alert("Não, você não é vegano");
+        }
+    }
+</script>

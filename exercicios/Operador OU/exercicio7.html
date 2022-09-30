@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operador || - Exercício 7</title>
+</head>
+
+<body>
+  <h2> Calculadora de cansaço dos Alunos da SPTECH</h2>
+
+  <select id="sel_transporte" onchange="analisandoCansaco()">
+    <option value="">Selecione a forma de pagamento</option>
+    <option value="C">Carro</option>
+    <option value="B">Bicicleta</option>
+    <option value="M">Metro</option>
+    <option value="O">Onibus</option>
+    <option value="L">Lotação</option>
+  </select>
+  <br><br>
+<button onclick="analisarCansaco()">Calcular cansaço</button>
+</body>
+
+</html>
+<script>
+  
+  function analisarCansaco() {
+    var transporte = sel_transporte.value;    
+    
+    if(transporte== 'C' || transporte=='B'){
+      alert("Tá tranquilo");
+    }
+    else if(transporte=='O' || transporte=='L'){
+      alert(" Vish... vive cansado")
+    }
+    else{
+      alert("Um pouco cansado");
+    }
+  }
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algoritmo | Exercicio 12</title>
+  </head>
+
+  <body>
+    <h2>Vida do lutador</h2>
+
+    <div id="id_life">Vida do lutador : 1000</div>
+    <div id="id_screen"></div>
+
+    <img src="https://adrenaline.com.br/uploads/chamadas/anderson-silva-super.jpg"alt="Foto lutador"id="id_img" width="300px"
+    />
+    <br /><br />
+    <button onclick="apanhar()">Apanhar</button>
+    <button onclick="concentrarForca()">Concentrar Força</button>
+  </body>
+</html>
+<script>
+  var vidaLutador = 1000;
+
+  function apanhar() {
+    vidaLutador -= 100;
+    if (vidaLutador <= 0) {
+      vidaLutador = 0;
+      id_img.src =
+        "http://cdn.espn.com.br/image/wide/960_d060f5bd-1023-34e9-8dd4-a7d96ac93b5d.png";
+      id_screen.innerHTML = "Lutador já era!";
+    } else {
+      id_screen.innerHTML = "Lutador ainda vivo";
+    }
+    id_life.innerHTML = `Vida do lutador : ${vidaLutador.toFixed(2)}`
+  }
+
+  function concentrarForca() {
+    vidaLutador += vidaLutador * 0.05;
+   if(vidaLutador!=0){
+      id_screen.innerHTML = "Lutador ainda vivo";
+    
+    id_life.innerHTML = `Vida do lutador : ${vidaLutador.toFixed(2)}`
+   }
+  }
+</script>

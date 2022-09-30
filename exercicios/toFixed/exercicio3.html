@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Informe um numero</h2>
+  <input type="text" id="id_number1"><br>
+  <h2>Informe outro numero</h2>
+  <input type="text" id="id_number2">
+  <br><br>
+  <button onclick="realizarSoma()">Execute a adição</button><br><br>
+  <button onclick="realizarSubtracao()">Execute a subtração</button><br><br>
+  <button onclick="realizarMultiplicacao()">Execute a multiplicação</button><br><br>
+  <button onclick="realizarDivisao()">Execute a divisão</button><br><br>
+  <div id="id_screen"></div>
+</body>
+</html>
+<script>
+  function realizarSoma(){
+    var numero1 = Number(id_number1.value);
+    var numero2=Number(id_number2.value);
+    var calculo=(numero1+numero2).toFixed(2);
+    id_screen.innerHTML=`A soma entre ${numero1} e ${numero2} é ${calculo}`;
+  }
+
+  function realizarSubtracao(){
+    var numero1 = Number(id_number1.value);
+    var numero2=Number(id_number2.value);
+    var calculo=(numero1-numero2).toFixed(2);
+    id_screen.innerHTML=`A substracao entre ${numero1} e ${numero2} é ${calculo}`;
+  }
+
+  function realizarMultiplicacao(){
+    var numero1 = Number(id_number1.value);
+    var numero2=Number(id_number2.value);
+    var calculo=(numero1*numero2).toFixed(2);
+    id_screen.innerHTML=`A multiplicação entre ${numero1} e ${numero2} é ${calculo}`;
+  }
+
+  function realizarDivisao(){
+    var numero1 = Number(id_number1.value);
+    var numero2=Number(id_number2.value);
+    var calculo=(numero1/numero2).toFixed(2);
+    id_screen.innerHTML=`A divisão entre ${numero1} e ${numero2} é ${calculo}`;
+  }
+</script>

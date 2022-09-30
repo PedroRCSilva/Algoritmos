@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oração</title>
+</head>
+<body>
+  <h2>Selecione uma oração</h2>
+
+  <select  id="sel_oracao" onchange="responderOracao()">
+    <option value="">Selecione uma oração</option>
+    <option value="Que eu leve amor">Onde houver ódio</option>
+    <option value="Que eu leve perdão">Onde houver ofensa</option>
+    <option value="Que eu leve união">Onde houver discordia</option>
+    <option value="Que eu leve fé">Onde houver dúvida</option>
+  </select>
+
+
+</body>
+</html>
+
+<script>
+
+  function responderOracao(){
+  var oracao = sel_oracao.value;
+  alert(oracao);
+  }
+</script>

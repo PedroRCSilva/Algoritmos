@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algoritmo | Exercicio 10</title>
+</head>
+
+<body>
+  <h2>Faça um programa para auxiliar o banco SPTO na análise das contas de seus clientes  </h2>
+
+  <h3>Informe o seu nome</h3>
+  <input id="id_nome" /><br /><br />
+  <h3>Informe o saldo da sua conta</h3>
+  <input id="id_valor" /><br/><br/>
+  <button onclick="analisarSaldo()">Análisar Saldo</button>
+    <br><br>
+  <div id="div_screen"></div>
+</body>
+
+</html>
+<script>
+  function analisarSaldo() {
+    var nome = id_nome.value;
+    var saldo = Number(id_valor.value);
+    
+    if (saldo<0) {
+      div_screen.innerHTML = `Com o saldo de R$${saldo.toFixed(2)} o cliente ${nome} está com saldo devedor`;
+    } else if (saldo<= 2000) {
+      div_screen.innerHTML =`Com o saldo de R$${saldo.toFixed(2)} o cliente ${nome} está com saldo NORMAL `;
+    } else if(saldo<5000) {
+      div_screen.innerHTML =`Com o saldo de R$${saldo.toFixed(2)} o cliente ${nome} está com saldo ACIMA DA MÉDIA `;
+    }
+    else{
+      div_screen.innerHTML =`Com o saldo de R$${saldo.toFixed(2)} o cliente ${nome} TEM PERFIL INVESTIDOR`;
+    }
+  }
+</script>

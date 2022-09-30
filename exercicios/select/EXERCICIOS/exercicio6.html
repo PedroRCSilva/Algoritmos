@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Informe a estação</h2>
+
+  <select  id="sel_estacao" onchange="mostrarEstacao()">
+    <option value="">Escolha uma imagem</option>
+    <option value="https://s2.static.brasilescola.uol.com.br/img/2019/09/primavera.jpg">Primavera</option>
+    <option value="https://s3.static.brasilescola.uol.com.br/be/2021/03/outono.jpg">Outono</option>
+    <option value="https://www.infoescola.com/wp-content/uploads/2008/10/inverno-450x334.jpg">Inverno</option>
+    <option value="https://s1.static.brasilescola.uol.com.br/galeria/images/2d28fe1a3b1ed960bca2e3798803c6b5.jpg">Verão</option>
+
+  </select>
+<br><br>
+<div id="id_screen">
+ 
+</div>
+</body>
+</html>
+
+<script>
+
+  function mostrarEstacao(){
+  var estacao = sel_estacao.value;
+  id_screen.innerHTML=`<img src="${estacao}"width=200px>`
+  }
+</script>

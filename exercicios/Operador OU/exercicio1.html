@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operador || - Exercício 1</title>
+</head>
+<body>
+  <h2> Juliane Joada só come duas frutas: uva e abacaxi. De forma alguma ela come outra fruta. Crie um programa que vai analisar se ela vai comer ou não uma fruta</h2>
+
+  <h2>Informe a fruta que chegou na mesa</h2>
+  <input type="text" id="id_fruta">
+  <br><br>
+
+  <button onclick="analisandoFruta()">Vai comer?</button>
+</body>
+</html>
+<script>
+  function analisandoFruta(){
+    var fruta = id_fruta.value;
+    if(fruta =='uva' || fruta=='abacaxi'){
+      alert("Sim, ela vai comer "+fruta)
+    }
+    else{
+      alert(`A fruta ${fruta} ela não come`);
+    }
+  }
+</script>

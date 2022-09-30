@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operador || - Exercício 3</title>
+</head>
+<body>
+  <h2> Crie um programa o qual ajudará o governo a saber se ele dará a ajuda emergencial ao Covid19 a um cidadão </h2>
+
+  <h2>Informe a sua renda individual</h2>
+  <input type="text" id="id_rendaIndividual">
+  <br><br>
+
+  <h2>Informe a sua renda familiar</h2>
+  <input type="text" id="id_rendaFamiliar">
+  <br><br>
+
+  <button onclick="analisandoBeneficio()">Terei o beneficio</button>
+</body>
+</html>
+<script>
+  function analisandoBeneficio(){
+    var rendaIndividual = id_rendaIndividual.value;
+    var rendaFamiliar = id_rendaFamiliar.value;
+
+    if(rendaIndividual <= 2000 || rendaFamiliar<=3000){
+      alert("Você terá direito ao seu auxílio")
+    }
+    else{
+      alert('Sem direito ao auxílio');
+    }
+  }
+</script>

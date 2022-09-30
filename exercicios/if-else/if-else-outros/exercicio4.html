@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicio 4 - Algoritmo </title>
+</head>
+<body>
+  <h2>Informe a o valor do sorvete por grama</h2>
+  <input type="text" id="input_valor">
+
+  <h2>Informe o peso do sorte que você vai querer:(Gramas)</h2>
+  <input type="text" id="input_gramasPeso">
+
+  <h2>Informe a cobertura</h2>
+  <input type="text" id="input_cobertura">
+
+  <h2>Informe o tipo de sorvete</h2>
+  <input type="text" id="input_tipo">
+
+  <button onclick="calcularSorvete()">Calcular</button>
+  <div id="id_screen"></div>
+
+</body>
+</html>
+<script>
+  function calcularSorvete(){
+    var valorSorvete = Number(input_valor.value);
+    var gramaSorvete = Number(input_gramasPeso.value);
+    var tipoSorvete = input_tipo.value;
+    var tipoCobertura = input_cobertura.value;
+    var calculoSorvete = gramaSorvete*valorSorvete;
+
+    if(tipoSorvete == "G"){
+      calculoSorvete=calculoSorvete*1.11;
+    }
+    else{
+      calculoSorvete=calculoSorvete*0.90;
+    }
+
+    if(tipoCobertura!="C"){
+      calculoSorvete=(0.01*calculoSorvete)+calculoSorvete;
+    }
+  
+
+if(valorSorvete>10){
+  id_screen.innerHTML=`O seu sorvete vai custar R$ ${calculoSorvete} e vai comprometer a mesada`;
+}
+else{
+  id_screen.innerHTML=`Hoje você está maneirando hoje, gastou somente <span style="color:blue">R$ ${calculoSorvete}</span>`;
+}
+  }
+</script>

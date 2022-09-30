@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 7.2 - If e Else</title>
+</head>
+<body>
+  <h2>Calculo de média</h2>
+
+   Informe a sua primeira nota   
+  <input type="text" id="in_input1"><br><br>
+
+   Informe a sua segunda nota   
+  <input type="text" id="in_input2"><br><br>
+
+  <button onclick="calcularMediaAluno()">Calcular media</button>
+</body>
+</html>
+
+<script>    
+
+  function calcularMediaAluno(){
+    var mediaAluno = (Number(in_input1.value)+Number(in_input2.value)/2);
+    if(mediaAluno>=6){
+      alert("Parabéns, aprovado!"); 
+    }
+    else{
+    alert("Tente outra vez"); 
+    }
+  }
+</script>

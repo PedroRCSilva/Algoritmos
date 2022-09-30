@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de idade</title>
+</head>
+<body>
+  <h2>Crie um simulador de idade de tempo para aposentadoria</h2>
+<br><br>
+  <h2>Informe os anos trabalhados</h2>
+  <input type="number" id="id_anos">
+  <br><br>
+  <select  id="sel_empresa">
+    <option value="">Informe que tipo de empresa trabalhou</option>
+    <option value="40">Empresa Privada</option>
+    <option value="35">Empresa publica</option>
+    <option value="45">Empreendedor</option>
+  </select>
+<br><br>
+  <button onclick="calcularAposentadoria()">Calcular Aposentadoria</button><br>
+
+  <div id="id_screen"></div>
+</body>
+</html>
+<script>
+  function calcularAposentadoria(){
+    var anosTrabalhados= Number(id_anos.value);
+    var tipoEmpresa = Number(sel_empresa.value);
+    var calculo=tipoEmpresa-anosTrabalhados;
+    id_screen.innerHTML=`Você ainda terá que trabalhar por mais ${calculo} anos para se aposentar`;
+  }
+</script>

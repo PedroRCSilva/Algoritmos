@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmo | Exercicio 6</title>
+</head>
+<body>
+  <h2>Time</h2>
+
+  <h3>Informe o qual time grande de São Paulo você torce </h3>
+  <select id="id_time">
+    <option value="Corinthians">Corinthians</option>
+    <option value="Palmeiras">Palmeiras</option>
+    <option value="Santos">Santos</option>
+    <option value="São Paulo">São Paulo</option>
+  </select><br><br>
+  <button onclick="analisarTime()">Fale sobre o seu time</button><br>
+<div id="div_screen">
+
+</div>
+
+
+</body>
+</html>
+<script>
+function analisarTime(){
+  var time = id_time.value;
+
+  if(time=='Corinthians'){
+    div_screen.innerHTML="<p style='color:white;background-color:black'> Salve o Corinthians</p>";
+  }
+  else if(time=='Palmeiras'){
+    div_screen.innerHTML="<p style='color:white;background-color:green'> Salve o Alviverde imponente</p>";
+  }
+  else if(time=='São Paulo'){
+    div_screen.innerHTML="<p style='color:red;background-color:black'> Salve o Tricolor paulista</p>";
+  }
+  else{
+    div_screen.innerHTML="<p style='color:black'> Agora que dá a bola é o Santos</p>";
+  }
+}
+</script>

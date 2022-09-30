@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operador && | Exercício 11</title>
+  </head>
+
+  <body>
+    <h2>Informe a sua idade</h2>
+    <br />
+    <input id="id_idade" />
+    <br />
+    <h2>Informe o seu salário</h2>
+    <br />
+    <input id="id_salario" />
+    <br />
+    <div id="id_screen"></div>
+
+    <button onclick="analisandoSituacaoFinanceira()">Análisar Situação</button>
+  </body>
+</html>
+<script>
+  function analisandoSituacaoFinanceira() {
+    var idade = Number(id_idade.value);
+    var salario = Number(id_salario.value);
+
+    if(idade<18 && salario>7000){
+      id_screen.innerHTML='Maior de idade e mega ostentação';
+    }
+    else if(idade>=18 && salario>=3500 && salario<=7000){
+      id_screen.innerHTML='Maior de idade e ostentação';
+    }
+    else if(idade>=18 && salario<3500){
+      id_screen.innerHTML='Maior de idade e liso';
+    }
+    else if(idade<18 && salario>=2500){
+      id_screen.innerHTML='Menor de idade e ostentação';
+    }
+    else {
+      id_screen.innerHTML='Menor de idade e liso';
+    }
+
+  }
+</script>

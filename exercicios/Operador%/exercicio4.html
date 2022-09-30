@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmo | Exercício 4</title>
+</head>
+<body>
+  <h2>Informe sua idade</h2>
+  <input type="text" id="in_idade">
+  <button onclick="verficarIdade()">Analisar Pontuação</button>
+  <div id="div_screen"></div>
+</body>
+</html>
+
+<script>
+  
+  function verficarIdade(){
+    var idade = Number(in_idade.value);
+    var pontos = 0;
+    var infancia = idade<=12
+    var adolescente = idade<=18 && idade>12;
+    var velho = idade>=65;
+
+    if(velho){
+      pontos+=80;
+    }
+    else{
+      if(adolescente){
+        pontos+=30;
+      }
+      else{
+        pontos+=10;
+      }
+    }
+    div_screen.innerHTML= `Já passou pela infância :${infancia}<br>Já passou pela adolescencia :${adolescente}<br> Já é um idoso :${velho}<br>Total de pontos ${pontos}`;
+  }
+</script>

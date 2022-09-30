@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operador && | Exercício 13</title>
+</head>
+
+<body>
+
+  <h2>Milhares de anos atrás um pai para permitir que sua filha se relacionasse, as vezes colocava condições insanas. Um
+    deles, segundo relatos muito antigos, exigiu 14 anos de trabalho para um rapaz. Vamos ajudar um pai dessa época a
+    verificar se um homem pode casar com sua filha.</h2>
+
+  <h2>Informe o tempo quantos anos o rapaz trabalhou</h2>
+  <br />
+  <input id="id_tempo" />
+  <br />
+  <h2>Informe a quantidade em kilos por hectere que suas plantações renderam</h2>
+  <br />
+  <input id="id_hectar" />
+  <br />
+  <h2>Informe a quantidade em kilos por hectere que suas plantações renderam</h2>
+  <br />
+  <input id="id_faltas" />
+
+  <div id="id_screen"></div>
+
+  <button onclick="analisandoCasamento()">Deu match</button>
+</body>
+
+</html>
+<script>
+  function analisandoCasamento() {
+    var tempo = Number(id_tempo.value);
+    var hectar = Number(id_hectar.value);
+    var faltas = Number(id_faltas.value);
+    
+    if (tempo>=5 && hectar>=300 && faltas<=5) {
+      id_screen.innerHTML="Minha filha será sua!<br> <img src='https://casamento.biz/wp-content/uploads/2019/08/Fotografias-de-Noivas.jpg ' width=300px>";
+    }
+    else{
+      id_screen.innerHTML="Deu ruim! Trabalhe mais 2 anos <img src='https://www.fatosdesconhecidos.com.br/wp-content/uploads/2016/04/homem-bravo-600x406.jpg' width=300px>";
+    }
+    
+  }
+</script>

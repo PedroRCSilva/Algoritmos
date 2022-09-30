@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmo - Pagina 19</title>
+</head>
+<body>
+  <input type="text" placeholder="Temperatura" id="in_temperatura" >
+  <br><br>
+
+  <button onclick="analisar()">Analisar</button>
+  </input>
+</body>
+</html>
+<script>
+  function analisar(){
+    var temperatura= Number(in_temperatura.value);
+
+    // Tipo booleano (Boolean) 
+    var agradavel= temperatura>23;
+    
+      if(agradavel){
+        alert("Temperatura Agradavel");
+      }
+
+      // O OPERADOR ! NEGA OU INVERTE UMA EXPRESSÇAO LÓGICA 
+      if(!agradavel){
+        alert("Temperatura NÃO ESTÁ agradavel!");
+      }
+    }
+</script>

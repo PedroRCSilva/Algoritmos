@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 4.a - Condicional</title>
+</head>
+<body>
+<h2>. Um grupo de amigos costuma (ou costumava, antes do Covid19) a se reunir a casa de um deles para pedir e comer pizza. Só que eles tinham um trato de que o valor da pizza, quando dividido entre os amigos, não passe de 20,00 por amigo. Ajude eles criando um programa</h2>
+  Valor da Pizza: <input type="text" id="in_input1"><br><br>
+  Quantidade de amigos <input type="text" id="in_input2"><br><br>
+  <button onclick="calcularPizza()">Calcular pizza</button>
+
+  <div id="id_visor"></div>
+</body>
+</html>
+
+<script>
+
+  function calcularPizza(){
+    var valorPizzaDividido = ((Number(in_input1.value))/in_input2.value).toFixed(2);
+    id_visor.innerHTML=`Cada amigo vai pegar R$ ${valorPizzaDividido} pela pizza.`;
+    if(valorPizzaDividido>20){
+      id_visor.innerHTML+="<br><strong style='color:blue;'><i>Deu ruim! Pizza muito cara!<i></strong>";
+    }
+ 
+  }
+</script>

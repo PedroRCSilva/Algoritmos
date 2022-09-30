@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operador || - Exercício 6</title>
+</head>
+
+<body>
+  <h2> Juliana Morosa gosta muito de números chamados "cabalísticos". Principalmente do 3, 4, 7 e 10. Ela quer saber quando chega em um determinado número de cliques que seja um deles. Assim, crie um programa</h2>
+
+  <div id="id_screen">Você ja clicou 0 vezes</div>
+<br><br>
+<button onclick="analisarCliques()">Clique cabalistico</button>
+</body>
+
+</html>
+<script>
+  var clique = 0
+  function analisarCliques() {
+    clique++;
+    id_screen.innerHTML=`Você ja clicou ${clique} vezes`;
+    if (clique == 3 || clique == 4  || clique == 7 || clique==10) {
+      alert(`Você clicou ${clique} vezes e Juliana gosta desse número!`);
+    }
+
+  }
+</script>

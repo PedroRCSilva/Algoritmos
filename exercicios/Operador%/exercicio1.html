@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmo | Exercício1</title>
+</head>
+<body>
+  <h2>Informe o seu Email</h2>
+  <input type="email" id="in_email">
+  <br><br>
+
+  <h2>Informe a sua senha</h2>
+  <input type="password" id="in_password">
+<br><br>
+  <button onclick="verificarLogin()">Entrar</button>
+  <div id="div_screen"></div>
+</body>
+</html>
+<script>
+
+  function verificarLogin(){
+    var validarEmail = in_email.value=='aidmin';
+    var validarSenha = in_password.value=='seinha';
+    var autenticado = validarEmail && validarSenha;
+    resultado = ''; 
+    if(autenticado){
+        resultado="<span style='color:blue'>Usuário autenticado com sucesso</span>";
+      }
+      else{
+        div_screen.innerhtml="";
+        if(!validarEmail){
+          resultado="<span style='color:red'>Seu Login está inválido<span/>"
+        }
+        if(!validarSenha){
+          if(validarEmail){
+            alert("Entre em contato com o suporte tecnico");
+          }
+          resultado+="<span style='color:red'>Sua senha esta invalida<span/>"
+        }
+      }
+      div_screen.innerHTML=resultado;
+    }
+      
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body>
+  <h2>Insira um angulo, e calcule o seno,cosseno e tangente do valor inserido</h2>
+
+  <h2>Informe um numero</h2>
+  <input type="text" id="id_input1">
+  <button onclick="calcular()"> Paulo lindo o melhor</button>
+  <div id="input_div"></div>
+
+
+  </div>
+
+</body>
+</html>
+
+<script>
+function calcular(){
+let seno=Math.sin(Number(id_input1.value)*Math.PI/180);
+let cosseno=Math.cos(Number(id_input1.value)*Math.PI/180);
+let tangente=Math.tan(Number(id_input1.value*Math.PI/180));
+
+input_div.innerHTML="O valor do seno é "+seno+"O valor do cosseno é "+cosseno+" O valor do tangente "+tangente;
+}
+  
+</script>

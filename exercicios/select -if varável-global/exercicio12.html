@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algoritmo | Exercicio 12</title>
+</head>
+
+<body>
+  <h2>Crie um botão para avaliar o quão habilidoso o usuário é nos cliques.</h2>
+
+<button onclick="analisarCliques()">Clique aqui</button>
+    <div id="id_screen"></div>
+</body>
+
+</html>
+<script>
+  var contadora=0;
+  function analisarCliques() {
+   contadora++;
+   id_screen.innerHTML=`Você ja clicou ${contadora} vezes<br>`;
+   if(contadora<=5){
+id_screen.innerHTML+='Dedo fraquinho, hein';
+   }
+   else if(contadora<=10){
+    id_screen.innerHTML+='Dedo bom, mano';
+   }
+   else if(contadora<=15){
+    id_screen.innerHTML+='Gosta de clicar, hein!'
+   }
+   else{
+    id_screen.innerHTML+='Eita dedo nervoso'; 
+   }
+  }
+</script>

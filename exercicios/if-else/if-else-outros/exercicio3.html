@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicio 3 - Algoritmo </title>
+</head>
+<body>
+  <h2>Informe a o valor do sorvete por grama</h2>
+  <input type="text" id="input_valor">
+
+  <h2>Informe o peso do sorte que você vai querer:(Gramas)</h2>
+  <input type="text" id="input_gramasPeso">
+
+  <button onclick="calcularSorvete()">Calcular</button>
+
+</body>
+</html>
+<script>
+  function calcularSorvete(){
+    var valorSorvete = Number(input_valor.value);
+    var gramaSorvete = Number(input_gramasPeso.value);
+    var valorFinal = gramaSorvete*valorSorvete;
+    if(valorFinal>10){
+      alert("Esse sorvete vai comprometer a mesada.")
+    }
+    else{
+      alert("Hoje você esta maneirando...");
+    }
+  }
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício 5 - IF e Else</title>
+  </head>
+  <body>
+    <h2>Calcular a média do aluno</h2>
+
+     Informe a primeria nota:
+    <input type="text" id="in_input1" /><br /><br />
+     Informe a segunda nota:
+    <input type="text" id="in_input2" /><br /><br />
+
+    <button onclick="calcularMedia()">Verficar situação</button>
+
+    <div id="id_visor"></div>
+  </body>
+</html>
+
+<script>
+  function calcularMedia() {
+    var media = (Number(in_input1.value) + Number(in_input1.value)) / 2;
+    if (media >= 6) {
+      alert("Parabéns, Aprovado!");
+    } else {
+      alert("Tente outra vez!");
+    }
+  }
+</script>

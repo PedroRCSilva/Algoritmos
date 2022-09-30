@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador && | Exercício 7</title>
+</head>
+
+<body>
+    <h2>Informe a nota do aluno</h2>
+    <br>
+    <input id="id_nota">
+    <br>
+    <h2>Informe a frequencia do aluno</h2>
+    <br>
+    <input id="id_frequencia">
+
+    <button onclick="verificarFrequencia()">Avaliar aluno</button>
+
+</body>
+
+</html>
+<script>
+    function verificarFrequencia() {
+        var nota = Number(id_nota.value);
+        var frequencia = Number(id_frequencia.value);
+
+        if(nota>=6 && frequencia>=75) {
+            alert("Parabéns! Aprovado!");
+        }
+        else {
+            alert("Infelizmente, não foi dessa vez");
+        }
+      
+    }
+</script>

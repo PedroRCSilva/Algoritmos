@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador && | Exercício 1</title>
+</head>
+
+<body>
+    <h2>Informe a temperatura</h2>
+    <input id="id_temperatura">
+    <button onclick="verificarTemperatura()">Ver situação</button>
+
+</body>
+
+</html>
+<script>
+    function verificarTemperatura() {
+        var temperatura = Number(id_temperatura.value);
+        if (temperatura >=21 && temperatura <=24) {
+            alert("Temperatura confortavel :)");
+        }
+        else {
+            alert("Temperatura desconfortavel :(");
+        }
+    }
+</script>

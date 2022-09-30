@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 5 - Condicional</title>
+</head>
+<body>
+  <h2>6. Criar um programa que auxilie um banco a identificar quem tem renda o suficiente para fazer o financiamento da casa própria.</h2>
+
+  Insira sua renda familiar
+  <input type="text" id="in_input1"><br><br>
+  Insira o valor da prestação
+  <input type="text" id="in_input2"><br><br>
+  <div id="visor_id"></div>
+  <button onclick="calcularFinanciamento()">Calcular</button>
+</body>
+</html>
+
+<script>
+
+  function calcularFinanciamento(){
+    var calculoPrestacao = (Number(in_input2.value)/Number(in_input1.value)*100).toFixed(2);
+    visor_id.innerHTML=`A prestação corresponde a ${calculoPrestacao}% da renda familiar<br>`;
+    if(calculoPrestacao>30){
+      visor_id.innerHTML+=`<strong style=color:red;>Será necessario complementar a renda familiar</strong>`;  
+    }
+
+  }
+
+</script>

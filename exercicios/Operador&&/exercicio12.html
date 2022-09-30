@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operador && | Exercício 12</title>
+  </head>
+
+  <body>
+
+    <h2>Crie um minissistema de recarga do "cartão fidelidade" do metrô se São Paulo em HTML/JS</h2>
+
+    <h2>Informe a quantidade de passagens que deseja adquirir</h2>
+    <br />
+    <input id="id_passagem" />
+    <br />
+
+    <div id="id_screen"></div>
+
+    <button onclick="analisandoPassagem()">Análisar Situação</button>
+  </body>
+</html>
+<script>
+  function analisandoPassagem() {
+    var passagem = Number(id_passagem.value);
+    var passagemValor = passagem * 4.40;
+    if(passagem>=8 && passagem<=50){
+
+      if(passagem==50){
+        passagemValor-=passagemValor*0.07;
+        id_screen.innerHTML=`Total a pagar: ${passagemValor.toFixed(2)}`;
+      }
+      else if(passagem>=20 && passagem<=49){
+        passagem-=passagemValor*0.05;
+        id_screen.innerHTML=`Total a pagar: ${passagemValor.toFixed(2)}`;
+      }
+      else{
+        passagem-=passagemValor*0.03;
+        id_screen.innerHTML=`Total a pagar: ${passagemValor.toFixed(2)}`;
+      }
+    }
+    else{
+      alert("Quantidade invalida para fidelidade")
+    }
+
+  }
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body>
+  <h2>Informe o seu nome</h2><br>
+  <input type="text" id="in_input"><br><br>
+
+  <h2>Informe o modelo do carro</h2><br>
+  <input type="text" id="in_input2"><br><br>
+
+  <h2>Informe o valor a ser comprado</h2><br>
+  <input type="text" id="in_input3"><br><br>
+  
+  <h2>Informe se possue cupom de desconto</h2><br>
+  <input type="text" id="in_input4"><br><br>
+
+  <button onclick="comprarCarro()">Efetuar Compra</button>
+
+  
+  <div id="input_screen"></div>
+
+</body>
+</html>
+<script>
+
+  function comprarCarro(){
+    input_screen.innerHTML="";
+    var inputNome = in_input.value;
+    var inputModelo = in_input2.value;
+    var inputValor = Number(in_input3.value);
+    var inputCupom = in_input4.value;
+    var valorFinal;
+    if(inputModelo ==""){
+      alert("Informe o modelo do carro para prosseguir com a compra");
+    }
+    else{
+      if(inputValor<5000){
+        alert("Valor invalido! O carro esta muito barato");
+      }
+      else{
+        if(inputCupom=="Carro_Novo"){
+        alert("Cupom valido! Desconto de 11% aplicado");
+        valorFinal= inputValor*0.89;
+        input_screen.innerHTML=`<p style="color:green">Olá, ${inputNome}, o carro modelo ${inputModelo}, de valor padrão ${inputValor.toFixed(2)}, sairá ${valorFinal.toFixed(2)}</p>`
+        }
+        else{
+          alert("Cupom invalido! Desconto não será aplicado");
+          valorFinal = inputValor;
+          input_screen.innerHTML=`<p style="color:red">Olá, ${inputNome}, o carro modelo ${inputModelo}, de valor padrão ${inputValor.toFixed(2)}, sairá ${valorFinal.toFixed(2)}</p>`
+        }
+
+        
+      }
+    }
+  }
+</script>

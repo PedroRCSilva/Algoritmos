@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmo | Exercicio 7</title>
+</head>
+<body>
+  <h2>valor</h2>
+
+  <h3>Informe o valor que você tem economizado </h3>
+  <input id="id_valor"><br><br>
+  <button onclick="analisarPoderCompra()">Poder de compra</button><br>
+<div id="div_screen">
+
+</div>
+
+
+</body>
+</html>
+<script>
+function analisarPoderCompra(){
+  var valor = id_valor.value;
+  var viagem='Viajem de ida e volta pra Praia Grande';
+  var moto = 'Uma boa moto usada';
+
+  if(valor<=0){
+    div_screen.innerHTML="Nada de compras";
+  }
+  else if(valor<=100){
+    div_screen.innerHTML=viagem;
+  }
+  else if(valor<4000){
+    div_screen.innerHTML=viagem+'<br>'+moto;
+  }
+  else{
+    div_screen.innerHTML=viagem+'<br>'+moto+'<br>Mais alguma bobagem legal';
+  }
+}

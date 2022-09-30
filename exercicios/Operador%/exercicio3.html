@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmo | Exercício3</title>
+</head>
+<body>
+  <h2>Informe a nota do aluno</h2>
+  <input  id="in_nota">
+  <br><br>
+
+  <h2>Informe a frequencia</h2>
+  <input  id="in_frequencia">
+  <br><br>
+
+<br><br>
+  <button onclick="verificarNota()">Avaliar</button>
+  <div id="div_screen"></div>
+</body>
+</html>
+<script>
+
+  function verificarNota(){
+    div_screen.innerHTML="";
+  var nota= Number(in_nota.value);
+  var frequencia= Number(in_frequencia.value);
+  var aprovado =nota>=6;
+  var aprovadoFrequencia = frequencia>75;
+  
+
+  if(aprovado && aprovadoFrequencia){
+    div_screen.innerHTML="Parabéns aprovado(a)"
+  }
+  else{
+    if(!aprovado){
+      div_screen.innerHTML="Reprovado(a) por nota<br>";
+    }
+    }
+    if(!aprovadoFrequencia){
+      div_screen.innerHTML+="Reprovado(a) por frequencia";
+    }
+
+  }
+
+</script>

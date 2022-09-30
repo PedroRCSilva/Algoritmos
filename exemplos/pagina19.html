@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmo - Pagina 19</title>
+</head>
+<body>
+  <input type="text" placeholder="Qualquer número" id="in_numero" onkeyup="analisar()">
+  <div id="div_analise">
+
+  </div>
+
+  </input>
+</body>
+</html>
+<script>
+  function analisar(){
+    var numero= Number(in_numero.value);
+    console.log(numero)
+    if(numero%2==0 ){
+      div_analise.innerHTML='É Par';
+    }
+    
+    else{
+      div_analise.innerHTML='É ímpar';
+    }
+
+    if(numero%7==0){
+      div_analise.innerHTML+='<br>É multiplo de 7';
+    }
+    else{
+      div_analise.innerHTML+='<br>Não é multiplo de 7';
+
+    }
+  }
+</script>

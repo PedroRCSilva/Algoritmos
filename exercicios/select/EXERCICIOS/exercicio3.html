@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mercadinho</title>
+</head>
+<body>
+
+
+ 
+  <select  id="sel_produto">
+    <option value="">Informe qual produto deseja comprar</option>
+    <option value="10">Leite</option>
+    <option value="8.50">Farinha</option>
+    <option value="3">Manteiga</option>
+    <option value="2">Cuscuz</option>
+   
+  </select>
+<br><br>
+  <button onclick="calcularMercadoria()">Ver Preço</button><br>
+
+
+</body>
+</html>
+<script>
+  function calcularMercadoria(){
+    var produtoValor= Number(sel_produto.value).toFixed(2);
+    alert(`Esse produto custa R$ ${produtoValor}`)
+  }
+</script>

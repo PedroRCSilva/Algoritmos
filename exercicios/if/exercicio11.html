@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 11 - Condicional</title>
+</head>
+<body>
+
+   Informe a quantidade de filhos que você tem   
+  <input type="text" id="in_input1"><br><br>
+  <button onclick="privilegiarFilhos()">Verificar Filhos</button>
+  <div id="id_visor"></div>
+ 
+</body>
+</html>
+
+<script>    
+
+  function privilegiarFilhos(){
+    id_visor.innerHTML='';
+    var qtdFilhos = Number(in_input1.value);
+    if(qtdFilhos>=1){
+      id_visor.innerHTML+="Não tem TV<br>";
+      if(qtdFilhos>=2){
+        id_visor.innerHTML+="Não tem internet<br>";
+      }
+      if(qtdFilhos>=3){
+        id_visor.innerHTML+="Não tem video-game<br>";
+      
+      if(qtdFilhos>=4){
+        id_visor.innerHTML+="Não tem Netflix<br>";
+      }  
+    }
+      
+    }
+
+  }
+</script>

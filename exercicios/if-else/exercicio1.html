@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 1 - IF e Else</title>
+</head>
+<body>
+  <h2> Vamos ver se vc ja é grandinho</h2>
+
+   Informe a sua idade   
+  <input type="text" id="in_input1"><br><br>
+
+  <button onclick="calcularIdade()">Avaliar aluno</button>
+
+  <div id="id_visor"></div>
+</body>
+</html>
+
+<script>    
+
+  function calcularIdade(){
+    var idadeAluno = (Number(in_input1.value));
+    if(idadeAluno>=18){
+      id_visor.innerHTML="Xxxxxxxxxxx Vamos tirar a CNH?"; 
+    }
+ else{
+    id_visor.innerHTML="Xxxxxxxx Vai jogar PlayStation"; 
+ }
+  }
+</script>

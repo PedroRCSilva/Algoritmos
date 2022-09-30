@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabuada</title>
+</head>
+<body>
+  <h2>Selecione qual tabuada você deseja</h2>
+
+  <select  id="sel_tabuada" onchange="calcularTabuada()">
+    <option value="">Selecione qual tabuada</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+  </select>
+<br><br>
+<div id="id_screen"></div>
+</body>
+</html>
+
+<script>
+
+  function calcularTabuada(){
+  var tabuada = Number(sel_tabuada.value);
+  id_screen.innerHTML=`
+  ${tabuada} X 2= ${tabuada*2}<br>
+   ${tabuada} X 3= ${tabuada*3}<br>
+   ${tabuada} X 4= ${tabuada*4}<br>
+   ${tabuada} X 5= ${tabuada*5}<br>
+   ${tabuada} X 6= ${tabuada*6}<br>
+   ${tabuada} X 7= ${tabuada*7}<br>
+   ${tabuada} X 8= ${tabuada*8}<br>
+   ${tabuada} X 9= ${tabuada*9}<br>`
+  }
+</script>
