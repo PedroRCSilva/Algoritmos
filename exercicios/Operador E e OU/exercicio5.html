@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algoritmo | Exercício 5</title>
+  </head>
+  <body>
+    <h2>INFORME O POKEMON DO TREINADOR INICIANTE</h2>
+    <select id="in_t1">
+      <option value="planta">Planta</option>
+      <option value="água">Água</option>
+      <option value="fogo">Fogo</option>
+    </select>
+
+    <h2>INFORME O POKEMON DO TREINADOR OPONENTE</h2>
+    <select id="in_t2">
+      <option value="planta">Planta</option>
+      <option value="água">Água</option>
+      <option value="fogo">Fogo</option>
+    </select>
+    <br><br>
+    <button onclick="analisarBatalha()">Batalhar</button>
+    <br /><br />
+    <div id="div_screen"></div>
+  </body>
+</html>
+<script>
+    var p1=0;
+    var p2=0;
+    var e=0;
+  function analisarBatalha() {
+    var t1 = in_t1.value;
+    var t2 = in_t2.value;
+    var t1W = ((t1 == "fogo" && t2 == "planta") || (t1 == "planta" && t2=="água")) || (t1=="água" && t2=="fogo");
+    var m='';
+    if (t1==t2) {
+      e++;
+      m='EMPATE';
+    } 
+    else {
+      if(t1W){
+        p1++;
+        m='TREINADOR INICIANTE GANHOU!';
+      }
+      else{
+        p2++;
+        m='TREINADOR INCIANTE PERDEU!';
+      }
+    }
+    div_screen.innerHTML=`INICIANTE = ${t1.toUpperCase()}<br>OPONENTE = 
+    ${t2.toUpperCase()}<br>Mensagem = ${m}<br> Contagem = Vitórias do iniciante: ${p1}/ Derrotas do iniciante: ${p2} / Empates = ${e}`;
+  }
+</script>

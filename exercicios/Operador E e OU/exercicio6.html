@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algoritmo | Exercício 6</title>
+  </head>
+  <body>
+    <h2>INFORME O NOME DO PRODUTO QUE IRÁ COMPRAR</h2>
+    <input type="text" id="in_np" />
+
+    <h2>INFORME O PREÇO INICIAL DO PRODUTO</h2>
+    <input type="text" id="in_ip" />
+
+    <h2>INFORME O CUPOM DE DESCONTO DO PRODUTO</h2>
+    <input type="text" id="in_c" />
+
+    <button onclick="analisarCompra()">Aplicar o Desconto</button>
+    <br /><br />
+    <div id="div_screen"></div>
+  </body>
+</html>
+<script>
+  function analisarCompra() {
+    var np = in_np.value.toLowerCase().replaceAll("material escolar","materialEscolar");
+    var ip = Number(in_ip.value);
+    var c = in_c.value;
+    var validacaoIn = np != "" && ip != "" && c != "";
+    var validacaoTec = (np == "celular" || np == "notebook" || np == "tablet") && c == "TECH_19";
+    var validacaoGer = (np == "tenis" || np == "livros" || np == "materialEscolar") && c == "GERAL_10";
+
+      var mensagem = "";
+    
+    if (validacaoIn) {
+      if (validacaoTec) {
+        mensagem = `Cupom para produtos em tecnologicos aplicado! Preço final será R$${ip - ip * 0.19}`;
+
+      } else if (validacaoGer) {
+        mensagem = `Cupom para produtos em geral aplicado! Preço final será R$${ip - ip * 0.1}`;
+
+      } else {
+        mensagem = `Cupom não aplicado! Preencha os campos e tente novamente`;
+      }
+    } 
+    else {
+      if (c == "") {
+        mensagem += "Insira o cupom para prosseguir.\n";
+      }
+      if (np == "") {
+        mensagem += "Insira o nome do produto para prosseguir.\n";
+      } 
+      if (ip =="") {
+        mensagem += "Insira o preço do produto para prosseguir.\n";
+      }
+      alert(mensagem);
+      mensagem='';  
+    }
+    div_screen.innerHTML=mensagem;
+  }
+</script>

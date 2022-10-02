@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmo | Exercício 4</title>
+</head>
+<body>
+  <h2>Informe a nota do aluno</h2>  
+  <input type="text" placeholder="Informe a nota do aluno" id="in_n">
+
+  <h2>Informe a frequencia do aluno</h2>  
+  <input type="text" placeholder="Informe a frequencia do aluno" id="in_f">
+
+  <button onclick="analisarNota()">Análisar Compra</button>
+  <br><br>
+  <div id="id_screen"></div>
+</body>
+</html>
+<script>
+  function analisarNota(){
+    var n = in_n.value;
+    var f = in_f.value;
+    var validacaoNota= n>=0 && n<=10;
+    var validacaoFrequencia = f>=0 && f<=100; 
+
+    if(!validacaoNota || !validacaoFrequencia){
+    
+      if(!validacaoNota){
+        alert("Onde já se viu nota menor que 0 ou maior que 10")
+      }
+      if(!validacaoFrequencia){
+        alert("Onde já se viu frequencia menor que 0 ou maior que 100");
+      }
+    }
+      else{
+        if(n<6){
+          id_screen.innerHTML="Aluno abaixo da média";
+        }
+
+        else if(n<=8){
+          id_screen.innerHTML="Aluno ficou na média"; 
+        }
+
+        else if(n<=10){
+          id_screen.innerHTML="Aluno ficou acima da média"; 
+        }
+
+        if(f>=75){
+          id_screen.innerHTML+="<br>Aluno aprovado por frequencia"; 
+        }
+        else{
+          id_screen.innerHTML+="<br>Aluno reprovado por frequencia";           
+        }
+      }
+    }
+ 
+  
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algoritmo | DESAFIO</title>
+  </head>
+  <body>
+    <br />
+
+    <h2></h2>
+    <select name="" id="sel_v">
+      <option value="i">Integral</option>
+      <option value="b">Branco</option></select
+    ><br /><br />
+
+    <h2>Tempo de cozimento</h2>
+    <input type="text" id="in_c" /><br /><br />
+    <h2>Quantidade de sal</h2>
+    <input type="text" id="in_s" /><br /><br />
+    <button onclick="avaliarArroz()">Avaliar Arroz</button>
+    <div id="div"></div>
+    <img src="" alt="" id="img" />
+  </body>
+</html>
+<script>
+  function avaliarArroz() {
+    var a = sel_v.value;
+    var t = in_c.value;
+    var s = in_s.value;
+
+    if (((a == "b" && t == 10 && s >= 0 && s <= 10) || (a == "i" && t == 20) && s > 0 && s <= 15)) {
+      div.innerHTML = "Arroz perfeito";
+
+      if (a == "b") {
+        img.src ="https://xtudoreceitas.com/wp-content/uploads/Arroz-Branco.jpg";
+      } else {
+        img.src ="https://img.itdg.com.br/tdg/images/recipes/000/114/954/44015/44015_original.jpg?mode=crop&width=710&height=400";
+      }
+    } else {
+      div.innerHTML = "Seu arroz não está perfeito";
+      img.src ="https://vejasp.abril.com.br/wp-content/uploads/2019/11/jacquin.jpg";
+    }
+  }
+</script>
