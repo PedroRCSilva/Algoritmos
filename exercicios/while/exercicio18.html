@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for=""> Informe quantas pessoas entraram no carro</label>
+    <input type="number" id="id_carro"/><br>
+    <label for=""> Informe quantas pessoas o carto suporta</label>
+    <input type="number" id="id_limite"/><br>
+    <button onclick="calcularCarro()">#Partiu carona</button>
+    <div id="div_screen"></div>
+  </body>
+</html>
+<script>
+    function calcularCarro(){
+      div_screen.innerHTML='';
+      var pessoasCarro=Number(id_carro.value);
+      var limite=Number(id_limite.value);
+      var contador=1;
+      while(contador<=pessoasCarro){
+        if(contador >=2 && contador<=limite){
+          div_screen.innerHTML+=`ENTROU O ${contador}° PASSAGEIRO<br>`
+        }
+        else if(contador==1){
+          div_screen.innerHTML+=`ENTROU O ${contador}° PASSAGEIRO (MOTORISTA)<br>`
+        }
+        else{
+          div_screen.innerHTML+=`O ${contador}° PASSAGEIRO  TEM QUE ESPERAR<br>`
+        }
+        contador++
+      }
+    }
+</script>

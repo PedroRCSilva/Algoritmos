@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <label >Informe quantas voltas o carro vai dar nessa corrida </label>
+  <input type="text" id="id_vc"><br><br>
+
+  <button onclick="analisarCorrida()">Analisar as corridas</button>
+  <div id="id_screen"></div>
+  
+</body>
+</html>
+<script >
+
+function analisarCorrida(){
+  var contador= 1;
+  var vc= Number(id_vc.value);
+
+  while(contador<=vc){
+    id_screen.innerHTML+=`Carro dando ${contador}° volta da corrida<br>`;
+    contador++;
+  }     
+}
+
+</script>

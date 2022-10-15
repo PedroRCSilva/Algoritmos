@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <label for=""> Informe quantos onibus você precisa pegar</label>
+    <input type="number" id="id_onibus" /><br>
+    <label for=""> Informe quantos trens você precisa pegar</label>
+    <input type="number" id="id_trens" /><br>
+    <label for=""> Informe quantos metros você precisa pegar</label>
+    <input type="number" id="id_metros" /><br>
+    <button onclick="calcularViajem()">Calcular Viagens</button>
+    <div id="div_screen"></div>
+</body>
+
+</html>
+<script>
+    function calcularViajem() {
+        var onibus = Number(id_onibus.value);
+        var trens = Number(id_trens.value);
+        var metros = Number(id_metros.value);
+        var contador = 1;
+        while (contador <= onibus) {
+            div_screen.innerHTML += `<span style='color:red'>PEGANDO ${contador}° onibus</span><br>`;
+            contador++
+        }
+        contador = 1;
+        while (contador <= trens) {
+            div_screen.innerHTML += `<span style='color:green'>PEGANDO ${contador}° trem</span><br>`;
+            contador++
+        }
+        contador = 1;
+        while (contador <= metros) {
+            div_screen.innerHTML += ` <span style='color:blue'>PEGANDO ${contador}° metro</span><br>`;
+            contador++
+        }
+    }
+</script>

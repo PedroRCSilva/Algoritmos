@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <label >Informe quantos titulos do mundial seu time tem </label>
+  <input type="text" id="id_nt"><br><br>
+
+  <button onclick="analisarMundiais()">Ver troféus mundiais da FIFA</button>
+  <div id="id_screen"></div>
+  
+</body>
+</html>
+<script >
+
+function analisarMundiais(){
+  var contador= 1;
+  var nt= Number(id_nt.value);
+
+if(nt!=0){
+  while(contador<=nt){
+    id_screen.innerHTML+=`<img src="https://i.pinimg.com/736x/3e/46/e4/3e46e4069b1016616293b07a7402a17a.jpg" width=80px>`;
+    contador++;
+  }     
+  }
+  else{
+  id_screen.innerHTML=`  <img src="https://ogimg.infoglobo.com.br/in/22860630-dbe-e78/FT1086A/77801235_CI-Rio-de-Janeiro-RJ-06-07-2018-COPA-DO-MUNDO-2018Torcida-no-Alzirao-entre-o-jogo-Br.jpg" width=180px>`;
+}
+}
+
+</script>

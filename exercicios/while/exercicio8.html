@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <label for="">Informe um numero de 0 a 200 </label>
+  <input type="text" id="id_number"><br><br>
+
+  <div id="div_screen">
+
+  </div>
+
+  <button onclick="analisarMultiplo()">Viva o 7</button>
+</body>
+</html>
+<script >
+function analisarMultiplo(){
+  var qtdMultiplo= Number(id_number.value);
+  var contador= 0;
+  var verificacao= qtdMultiplo>=0 &&  qtdMultiplo<=200
+  if(verificacao){
+  while(contador<=qtdMultiplo){
+    
+    if(contador % 7 == 0){
+      div_screen.innerHTML+=contador+'<br>'; 
+    }
+    
+  contador++
+  }
+}
+}
+
+
+</script>

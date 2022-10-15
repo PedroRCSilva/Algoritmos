@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <select name="" id="sel_input">
+    <option value="">Informe a tabuada</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+  </select>
+
+  <button onclick="analisarCorrida()">Analisar as corridas</button>
+  <div id="id_screen"></div>
+  
+</body>
+</html>
+<script >
+
+function analisarCorrida(){
+  id_screen.innerHTML='';
+  var contador= 1;
+  var tabuada = Number(sel_input.value);
+  var resultado = 0;
+  if(tabuada!=''){
+  while(contador<=10){
+    resultado=tabuada*contador;
+    if(resultado%2==0){
+    id_screen.innerHTML+=`<span style="color:blue">${tabuada} X ${contador} =${resultado}</span><br>`;
+    }
+    else{
+      id_screen.innerHTML+=`<span style="color:red">${tabuada} X ${contador} =${resultado}</span><br>`;
+      
+    }
+    contador++;
+  }
+}
+
+}
+</script>

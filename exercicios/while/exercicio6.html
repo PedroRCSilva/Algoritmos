@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <label for="">Informe o nome da pessoa que você mais ama</label>
+  <input type="text" id="id_pessoa"><br><br>
+
+  <label for="">Informe o quanto você a ama essa pessoa </label>
+  <input type="text" id="id_amor">
+
+  <div id="div_screen">
+
+  </div>
+
+  <button onclick="analisarAmor()">Expressar amor</button>
+</body>
+</html>
+<script >
+function analisarAmor(){
+  var pessoa= id_pessoa.value;
+  var qtdAmor= Number(id_amor.value);
+  var contador= 1;
+  while(contador<=qtdAmor){
+    div_screen.innerHTML+=`${contador}. ${pessoa}, eu te amo! Sempre lembre disso<br>`;
+    contador++
+  }
+}
+
+</script>

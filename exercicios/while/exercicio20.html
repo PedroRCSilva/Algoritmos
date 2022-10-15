@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <label for=""> Informe quantos onibus você precisa pegar</label>
+    <input type="number" id="id_onibus" /><br>
+    <label for=""> Informe quantos trens você precisa pegar</label>
+    <input type="number" id="id_trens" /><br>
+    <label for=""> Informe quantos metros você precisa pegar</label>
+    <input type="number" id="id_metros" /><br>
+    <button onclick="calcularViajem()">Calcular Viagens</button>
+    <div id="div_screen"></div>
+</body>
+
+</html>
+<script>
+    function calcularViajem() {
+        var onibus = Number(id_onibus.value);
+        var trens = Number(id_trens.value);
+        var metros = Number(id_metros.value);
+        var contador = 1;
+        var contadorElemento = 1
+        while (contador <= onibus) {
+            if (contadorElemento == 2) {
+                div_screen.innerHTML += ` <span style='color:red'>PEGANDO ${contador}° onibus começando a cansar</span><br>`;
+            } else if (contadorElemento >= 3) {
+                div_screen.innerHTML += ` <span style='color:red'>PEGANDO ${contador}° onibus já cansado</span><br>`;
+            } else {
+                div_screen.innerHTML += ` <span style='color:red'>PEGANDO ${contador}° onibus</span><br>`;
+            }
+            contadorElemento++
+            contador++
+        }
+        contador = 1;
+        while (contador <= trens) {
+            if (contadorElemento == 2) {
+                div_screen.innerHTML += ` <span style='color:green'>PEGANDO ${contador}° trem começando a cansar</span><br>`;
+            } else if (contadorElemento >= 3) {
+                div_screen.innerHTML += ` <span style='color:green'>PEGANDO ${contador}° trem já cansado</span><br>`;
+            } else {
+                div_screen.innerHTML += ` <span style='color:green'>PEGANDO ${contador}° trem</span><br>`;
+            }
+            contadorElemento++
+            contador++
+        }
+        contador = 1;
+        while (contador <= metros) {
+
+            if (contadorElemento == 2) {
+                div_screen.innerHTML += ` <span style='color:blue'>PEGANDO ${contador}° metro começando a cansar</span><br>`;
+            } else if (contadorElemento >= 3) {
+                div_screen.innerHTML += ` <span style='color:blue'>PEGANDO ${contador}° metro já cansado</span><br>`;
+            } else {
+                div_screen.innerHTML += ` <span style='color:blue'>PEGANDO ${contador}° metro</span><br>`;
+            }
+            contadorElemento++
+            contador++
+        }
+    }
+</script>

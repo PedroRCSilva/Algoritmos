@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="id_musc" />
+    <br>
+    <button onclick="analisarCorrida()">Exibir rotina</button>
+    <div id="id_screen"></div>
+  </body>
+</html>
+<script>
+  function analisarCorrida() {
+    id_screen.innerHTML = "";
+    var contador = 0;
+    var musc = Number(id_musc.value);
+    while (contador < 30) {
+      if (contador % musc == 0 || contador == 0 ) {
+        id_screen.innerHTML += `${contador+1} dia Musculação<br>`;
+      } else {
+        id_screen.innerHTML += `${contador+1 } dia Comer e durmir <br>`;
+      }
+      contador++;
+    }
+  }
+</script>
