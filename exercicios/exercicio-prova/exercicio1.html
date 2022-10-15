@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <label for="">Informe o quanto de agua engarrafada:</label>
+  <input type="number" id="in_agua"><br><br>
+  <label for="">Informe o quanto de coco fechado</label>
+  <input type="number" id="in_coco"><br><br>
+  <button onclick="calcularEstoque()">Abrir o quiosque</button>
+  <div id="div_screen"></div>
+
+  <h2>--- ESTOQUE INICIAL ----</h2>
+  <div id="div_screenEstoque"></div>
+
+
+
+  <h2> ---REGISTRO DE OPERAÇÃO DE VENDA --- </h2>
+  <h2>Registrar a venda</h2>
+  <label for="">Entre com a quantidade vendida</label>
+  <input type="number" id="in_venda"><br>
+  <label for="">Informe o produto vendido</label>
+  <select id="in_tipo">
+    <option value="CF">Coco fechado</option>
+    <option value="AE">Agua engarrafada</option>
+  </select>
+  <div id="divScreenVenda"></div>
+  <button onclick="registrarVenda()">REGISTRAR A VENDA</button>
+  <button onclick="encerrarTurno()">Encerrar Turno</button>
+</body>
+
+</html>
+<script>
+  var validacao = false;
+  var estoqueCoco = 0;
+  var estoqueAgua = 0;
+  var qtdVendaCoco = 0;
+  var qtdVendaAgua = 0;
+
+  function calcularEstoque() {
+    estoqueAgua = Number(in_agua.value);
+    estoqueCoco = Number(in_coco.value);
+
+    if (estoqueAgua < 100) {
+      divScreenVenda.innerHTML = "COM ESSA QUANTIDADE DE ÁGUA ENGARRAFADA NÃO DA PARA ABRIR O QUIOSQUE";
+    }
+    else if (estoqueCoco < 200) {
+      divScreenVenda.innerHTML = "COM ESSA QUANTIDADE DE COCOS NÃO DA PARA ABRIR O QUIOSQUE";
+      validacao = false;
+    }
+
+    else {
+      if (estoqueAgua >= 100 && estoqueAgua <= 1000) {
+        divScreenVenda.innerHTML = "ENGARRAFE MAIS AGUA DE COCO<br>";
+      }
+      if (estoqueCoco >= 200 && estoqueCoco <= 2000) {
+        divScreenVenda.innerHTML += "COMPRE MAIS COCOS<br>";
+      }
+      div_screenEstoque.innerHTML = `Cocos fechados: ${estoqueCoco}<br>Aguás engarrafadas: ${estoqueAgua}<br>`;
+      validacao = true;
+    }
+  }
+
+
+  function registrarVenda() {
+    if (validacao) {
+      var produto = in_tipo.value;
+      var vendas = Number(in_venda.value);
+      if (produto == 'CF' && estoqueCoco > 0 && vendas <= estoqueCoco) {
+        estoqueCoco -= vendas;
+        qtdVendaCoco += vendas;
+        divScreenVenda.innerHTML = `Com a venda de ${vendas} de Coco Fechado o saldo no estoque é de ${estoqueCoco}`;
+      }
+      else if (produto == 'AE' && estoqueAgua > 0 && vendas <= estoqueAgua) {
+        estoqueAgua -= Number(in_venda.value);
+        qtdVendaAgua += Number(in_venda.value);
+        divScreenVenda.innerHTML = `Com a venda de ${vendas} de Água engarrafada o saldo no estoque é de ${estoqueAgua}`;
+      }
+      else {
+        alert("A quantidade de vendas não corresponde com os produtos disponiveis no estoque");
+      }
+      
+    }
+  }
+
+  function encerrarTurno() {
+    var porcentagemVendasCoco = qtdVendaCoco / (qtdVendaAgua + qtdVendaCoco) * 100;
+    var porcentagemVendasAgua = qtdVendaAgua / (qtdVendaAgua + qtdVendaCoco) * 100;
+
+    divScreenVenda.innerHTML = `<br>VENDAS DE ÁGUA ENGARRAFADAS ${estoqueAgua}<br> Quantidade de vendas ${qtdVendaAgua}<br>Porcentagem de Vendas${porcentagemVendasAgua.toFixed(2)}%<br><br>
+VENDAS DE COCOS FECHADOS<br> Quantidade de vendas ${qtdVendaCoco}<br>Porcentagem de Vendas${porcentagemVendasCoco.toFixed(2)}%;`
+  }
+</script>
