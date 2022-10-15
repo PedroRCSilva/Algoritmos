@@ -29,15 +29,16 @@
     var validacaoIn = np != "" && ip != "" && c != "";
     var validacaoTec = (np == "celular" || np == "notebook" || np == "tablet") && c == "TECH_19";
     var validacaoGer = (np == "tenis" || np == "livros" || np == "materialEscolar") && c == "GERAL_10";
-
-      var mensagem = "";
-    
+    var mensagem = "";
+    var preco = 0;
     if (validacaoIn) {
       if (validacaoTec) {
-        mensagem = `Cupom para produtos em tecnologicos aplicado! Preço final será R$${ip - ip * 0.19}`;
+        preco=ip - ip * 0.81;
+        mensagem = `Cupom para produtos em tecnologicos aplicado! Preço final será R$${preco}`;
 
       } else if (validacaoGer) {
-        mensagem = `Cupom para produtos em geral aplicado! Preço final será R$${ip - ip * 0.1}`;
+        preco=ip * 0.9;
+        mensagem = `Cupom para produtos em geral aplicado! Preço final será R$${preco}`;
 
       } else {
         mensagem = `Cupom não aplicado! Preencha os campos e tente novamente`;
