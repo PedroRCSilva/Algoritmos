@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bebe pouco ou muito?</title>
+</head>
+
+<body>
+    <label for="">Quantas taças de vinho você bebeu: </label>
+    <input placeholder="Quantas taças" id="in_tacas" /> <br /><br />
+    <label for="">Qual o preço de cada taça: </label>
+    <input placeholder="Preço da taça" id="in_preco" /> <br />
+
+    <label>Qual sua tolerância a álcool?</label>
+    <select id="sel_tipo">
+        <option value="fraco">Fraco pra bebida</option>
+        <option value="medio">Bebe todo final de semana</option>
+        <option value="brabo">Só fica bêbado com Querosene</option>
+    </select>
+    <br />
+    <button onclick="beber()">Tomar vinho</button>
+
+    <div id="div_resultado"></div>
+    <img id="img_bebida" />
+</body>
+
+</html>
+<script>
+    function beber() {
+        var precoTaca = Number(in_preco.value);
+        var qtdTaca = Number(in_tacas.value);
+        var toleranciaAlcool = sel_tipo.value;
+
+
+        if (qtdTaca >= 0 && qtdTaca <= 30 && precoTaca>=0.01) {
+            var precoTotal = precoTaca * qtdTaca;
+            div_resultado.innerHTML = `Zé Buduia tomou um total de ${qtdTaca} taças de vinho, pagando R$ ${precoTotal} por isso`;
+
+            if (toleranciaAlcool == 'fraco') {
+                if (qtdTaca <= 2) {
+                    img_bebida.src = "levemente.png"
+                }
+                else if (qtdTaca <= 4) {
+                    img_bebida.src = "visivelmente.png"
+                }
+                else {
+                    img_bebida.src = "superbebado.png"
+                }
+            }
+
+            if (toleranciaAlcool == 'medio') {
+                if (qtdTaca <= 4) {
+                    img_bebida.src = "levemente.png"
+                }
+                else if (qtdTaca <= 7) {
+                    img_bebida.src = "visivelmente.png";
+                }
+                else {
+                    img_bebida.src = "superbebado.png"
+                }
+            }
+            if (toleranciaAlcool == 'brabo') {
+
+                if (qtdTaca <= 13) {
+                    img_bebida.src = "levemente.png"
+                }
+                else if (qtdTaca <= 19) {
+                    img_bebida.src = "visivelmente.png"
+                }
+                else {
+                    img_bebida.src = "superbebado.png"
+                }
+            }
+
+        }
+        else {
+            alert("Só é possivel beber de 0 a 30 taças")
+            if (precoTaca < 0.01) {
+                alert("Onde já se viu vinho grátis?");
+            }
+        }
+
+    }
+</script>
