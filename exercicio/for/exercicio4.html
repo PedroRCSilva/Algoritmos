@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <label for="">Informe o limite inferior da amostragem</label><br>
+  <input type="number" id="in_inferior"><br>
+  <label for="">Informe o limite superior da amostragem</label><br>
+  <input type="number" id="in_superior"><br>
+  <button onclick="calcularAmostragem()">Calcular Amostragem</button>
+  <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+  function calcularAmostragem() {
+
+
+    var inferior = Number(in_inferior.value);
+    var superior = Number(in_superior.value);
+    if (inferior < 1) {
+      div_resultado.innerHTML = "Amostra inferior fora do padrão";
+    }
+    else if (superior > 100) {
+      div_resultado.innerHTML = "Amostra superior fora do padrão";
+    }
+    else {
+      div_resultado.innerHTML = '';
+      for (contador = inferior; contador <= superior; contador++) {
+          div_resultado.innerHTML += `${contador}<br>`;
+      }
+    }
+  }
+</script>

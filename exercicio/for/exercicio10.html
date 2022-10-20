@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmo</title>
+</head>
+
+<body>
+  <label for="">Informe quantas depositos você faz</label><br>
+  <input type="number" id="in_qtdDeposito"><br><br>
+  <label for="">Informe o valor do deposito</label><br>
+  <input type="number" id="in_valorDeposito"><br><br>
+  <button onclick="calcularDeposito()">Ver quantidade</button>
+  <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+  function calcularDeposito() {
+    for (var contador = 1; contador <=Number(in_qtdDeposito.value); contador++) {
+      div_resultado.innerHTML += `${contador} - MÊS - R$${Number(in_valorDeposito.value)*contador}<br>`;
+    }
+  }
+  </script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmo</title>
+</head>
+
+<body>
+  <label for="">Informe quantas xicaras de café você já bebeu na vida</label><br>
+  <input type="number" id="in_qtdCoca"><br><br>
+  <button onclick="calcularXicara()">Ver quantidade</button>
+  <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+  function calcularXicara() {
+    div_resultado.innerHTML="";
+    for (var contador = 1; contador <=Number(in_qtdCoca.value); contador++) {
+      div_resultado.innerHTML += `<img src="https://thumbs.dreamstime.com/b/colher-de-madeira-enchida-com-o-p%C3%B3-leite-isolado-no-fundo-branco-139999655.jpg" width="80px">`;div_resultado.innerHTML += `<img src="https://thumbs.dreamstime.com/z/colher-do-caf%C3%A9-18335580.jpg" width="80px">`;
+      div_resultado.innerHTML += `<img src="https://thumbs.dreamstime.com/z/colher-do-caf%C3%A9-18335580.jpg" width="80px"><br>`;
+    }
+  }
+  </script>
