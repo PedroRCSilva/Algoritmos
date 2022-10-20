@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algoritmo | Laço For</title>
+</head>
+<body>
+  <h2>Numero aleatorios</h2>
+  <br><br>
+  <button onclick="numeroAleatorio()">De 0 até menos que 1</button>
+  <button onclick="numeroAleatorioInteiro10()">De 0 até menos que 10</button>
+  <button onclick="numeroAleatorio100()">De 0 até menos que 100</button>
+
+
+  <div id="div_repeticoes"></div>
+</body>
+</html>
+<script>
+  function numeroAleatorio(){
+        var sorteado = Math.random();
+        alert(sorteado);
+  }
+
+  function numeroAleatorioInteiro10(){
+        var sorteado = parseInt(Math.random()*11);
+        alert(sorteado);
+
+      }
+
+  function numeroAleatorio100(){
+        var sorteado = Math.random()*101;
+        alert(sorteado);
+  }
+
+  function numeroAleatorio(){
+        var sorteado = Math.random();
+  }
+
+</script>
