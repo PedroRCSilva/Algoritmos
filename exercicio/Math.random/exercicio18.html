@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      width: 150px;
+    }
+  </style>
+</head>
+
+<body>
+
+  
+<label for="">Informe o seu nome</label>
+<input type="text" id="in_nome"><br>
+
+<label for="">Informe o seu numero da sorte</label>
+<input type="text" id="in_numero"><br>
+
+  <button onclick="sortearNumero()">Sortear </button>
+  <br><br>
+  <div id="div_screen"></div>
+</body>
+
+</html>
+<script>
+
+  function sortearNumero() {
+    var nome=in_nome.value;
+    var numero =  Number(in_numero.value);
+    var qtdSorteios=1
+    if(numero>=1 && numero<=10){
+      for(var i=0;i!=numero;qtdSorteios++){
+        i=parseInt(1+(Math.random()*9));
+      }
+      div_screen.innerHTML=`Parabéns ${nome} você foi sorteado após ${qtdSorteios} sorteios`;
+    }
+    else{
+      alert("Insira um numero de 1 a 10")
+    }
+  }
+  </script>
+    
+  
+
+ 
+
+
+
+
+</script>

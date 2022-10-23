@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      width: 150px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button onclick="sortearDia()">Sortear Dia</button>
+  <br><br>
+  
+  <div id="div_screen"></div>
+</body>
+
+</html>
+<script>
+
+  function sortearDia() {
+    var dia = 1+parseInt(Math.random()*31);
+    div_screen.innerHTML=`O dia sorteado foi: ${dia}<br>`;
+   if(dia<=7){
+    div_screen.innerHTML+=`LUA NOVA <br> <img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Dark_moon_emoji_icon_png_200x200.png">`;
+    }
+    else if(dia<=16){
+      div_screen.innerHTML+=`LUA CHEIA <br> <img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Full_moon_emoji_icon_png_200x200.png">`;
+
+    }
+    else if(dia<=22){
+      div_screen.innerHTML+=`LUA MINGUANTE <br> <img src="https://cdn.shopify.com/s/files/1/1061/1924/files/First_quarter_moon_emoji_icon_png_200x200.png">`;
+    }
+    else{
+      div_screen.innerHTML+=`LUA CRESCENTE <br> <img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Waning_crescent_moon_emoji_icon_png_200x200.png">`;
+
+    }
+  }
+  </script>
+    
+  
+
+ 
+
+
+
+
+</script>

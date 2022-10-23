@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img{
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Clique no botão</h2>
+  <button onclick="sortearNumero()">Quero o numero cabalistico</button>
+  <div id="div_screen"></div>
+</body>
+</html>
+<script>
+  function sortearNumero(){
+    var numeroSorteado= parseInt(Math.random()*16);
+    var mensagem= '';
+
+    if(numeroSorteado==3 ||numeroSorteado==4 ||numeroSorteado==7 || numeroSorteado==10 || numeroSorteado==12){
+      mensagem=`Eu S2 numeros cabalisticos!`;
+     }
+     else {
+      mensagem=`Ah, me da um numero bom da próxima!`;
+     }
+    
+      div_screen.innerHTML=mensagem;
+    }
+
+  
+</script>

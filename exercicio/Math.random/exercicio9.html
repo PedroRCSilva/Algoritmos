@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      width: 150px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Clique no botão</h2>
+  <button onclick="notaNumero()">Gerar nota do aluno entre 0 e 10</button>
+  <div id="div_screen"></div>
+  <br><br>
+  <button onclick="frequenciaNumero()">Gerar frequencia do aluno entre 0 e 10</button>
+  <div id="div_screen1"></div>
+  <br><br>
+  <button onclick="verificarAprovacao()">Aprovado ?</button>
+  <div id="div_screen2"></div>
+
+</body>
+
+</html>
+<script>
+  var frequencia = 0;
+  var nota = 0;
+
+  function notaNumero() {
+    nota = 3+(Math.random() * 7)+0.001;
+    div_screen.innerHTML = nota.toFixed(1);
+  }
+
+  function frequenciaNumero() {
+    frequencia = 50+parseInt((Math.random()*51));
+    div_screen1.innerHTML = frequencia.toFixed(1);
+  }
+
+  function verificarAprovacao() {
+    if (frequencia >= 75 && nota > 6) {
+      alert("Aprovado");
+    }
+    else{
+      alert("Reprovado");
+      
+    }
+  }
+</script>

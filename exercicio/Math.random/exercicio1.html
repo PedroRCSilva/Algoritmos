@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Clique no botão</h2>
+  <button onclick="sortearNumero()">Sortear um numero</button>
+  <div id="div_screen"></div>
+</body>
+</html>
+<script>
+  function sortearNumero(){
+    var numeroSorteado= Math.random();
+    if(numeroSorteado>0.5){
+      div_screen.innerHTML=`NUMERO SORTEADO : ${numeroSorteado}, Se eu fosse você arrendondaria para 1`;
+    }
+    else{      
+      div_screen.innerHTML=`NUMERO SORTEADO : ${numeroSorteado}, Se eu fosse você arrendondaria para 0`;
+    }
+  }
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      width: 150px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button onclick="acharNumero()">Avaliar</button>
+  <br><br>
+  
+  <div id="div_screen"></div>
+</body>
+
+</html>
+<script>
+
+  function acharNumero() {
+    var avaliacao=(Math.random()*4)+0.001;
+   var mensagem=`Nota recebida: ${avaliacao.toFixed(2)}<br>`;
+    if(avaliacao <=0.5){
+      mensagem+='<img src="https://i.pinimg.com/originals/7d/53/66/7d5366af7998b8335bee042c6cd9d9ec.jpg">';
+    }
+    else if(avaliacao<=1.5){
+      mensagem+='<img src="https://images.emojiterra.com/google/android-10/512px/1f610.png">';
+    }
+    else if(avaliacao<=3.5){
+      mensagem+='<img src="https://gorilaclube.vteximg.com.br/arquivos/ids/191653-500-500/Mouse_Pad_Emoji_Feliz_Emoticon_183.jpg?v=637060725010170000">';
+    }
+    else{
+      mensagem+='<img src="https://i.pinimg.com/originals/e7/29/7e/e7297ec6b9012e05e252ab6387e0d7f5.jpg">';
+
+    }
+    div_screen.innerHTML=mensagem
+    
+  }
+
+ 
+
+
+
+
+</script>

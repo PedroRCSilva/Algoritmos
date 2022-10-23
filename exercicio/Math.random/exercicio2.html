@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Clique no botão</h2>
+  <button onclick="sortearNumero()">Sortear um numero</button>
+  <div id="div_screen"></div>
+</body>
+</html>
+<script>
+  function sortearNumero(){
+    var numeroSorteado= parseInt(1+Math.random()*5);
+    if(numeroSorteado==1){
+      div_screen.innerHTML='<img src="https://a.espncdn.com/i/teamlogos/soccer/500/2029.png" width:150px>';
+    }
+    else if(numeroSorteado==2){      
+      div_screen.innerHTML='<img src="https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png" width:150px>';
+    }
+    else if(numeroSorteado==3){
+      div_screen.innerHTML='<img src="https://a.espncdn.com/combiner/i?img=/i/teamlogos/soccer/500/2026.png" width:150px>';
+    }
+    else{
+      div_screen.innerHTML='<img src="https://media.santosfc.com.br/wp-content/uploads/2022/04/Asset-2.jpg" width:150px>';
+    }
+  }
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img{
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Clique no botão</h2>
+  <button onclick="sortearNumero()">Sortear momento do dia</button>
+  <div id="div_screen"></div>
+</body>
+</html>
+<script>
+  function sortearNumero(){
+    var numeroSorteado= parseInt(Math.random()*24);
+    var mensagem= '';
+
+    if(numeroSorteado<=11){
+      mensagem=`Bom dia, flor do dia, são ${numeroSorteado} horas`;
+     }
+     else if(numeroSorteado<=17){
+      mensagem=`Boa tarde, ja vai tarde! são ${numeroSorteado} horas`;
+     }
+     else {
+      mensagem=`Boa noite, durma bem, são ${numeroSorteado} horas`;
+     }
+    
+      div_screen.innerHTML=mensagem;
+    }
+
+  
+</script>

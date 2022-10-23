@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      width: 150px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Clique no botão</h2>
+  <button onclick="jogarDadinho1()">Jogue o dadinho do jogador 1</button>
+  <div id="div_screen"></div>
+  <br><br>
+  <button onclick="jogarDadinho2()">Jogue o dadinho do jogador 2</button>
+  <div id="div_screen1"></div>
+
+</body>
+
+</html>
+<script>
+  var jogador1 = 0;
+  var jogador2 = 0;
+
+  function jogarDadinho1() {
+    jogador1 = 1 + parseInt(Math.random() * 5);
+    div_screen.innerHTML = `Valor do dadinho JOGADOR 1: ${jogador1}`;
+  }
+
+  function jogarDadinho2() {
+    var mensagem = "";
+    jogador2 = 1 + parseInt(Math.random() * 5);
+    mensagem = `Valor do dadinho do JOGADOR 2: ${jogador2}<br>`;
+    if (jogador1 > jogador2) {
+      mensagem += "Jogador 1 venceu !"
+    }
+    else if (jogador2 > jogador1) {
+      mensagem += "Jogador 2 venceu";
+    }
+    else {
+      mensagem += "EMPATE !"
+    }
+
+    div_screen1.innerHTML = mensagem;
+  }
+
+</script>

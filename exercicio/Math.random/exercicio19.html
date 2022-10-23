@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      width: 150px;
+    }
+  </style>
+</head>
+
+<body>
+
+  
+<label for="">Informe o seu nome</label>
+<input type="text" id="in_nome"><br>
+
+<label for="">Informe o seu 1°  numero da sorte</label>
+<input type="text" id="in_numero1"><br>
+
+<label for="">Informe o seu 2° numero da sorte</label>
+<input type="text" id="in_numero2"><br>
+
+<label for="">Informe o seu 3° numero da sorte</label>
+<input type="text" id="in_numero3"><br>
+
+  <button onclick="sortearNumero()">Sortear </button>
+  <br><br>
+  <div id="div_screen"></div>
+</body>
+
+</html>
+<script>
+
+  function sortearNumero() {
+    var nome=in_nome.value;
+    var numero1 =  Number(in_numero1.value);
+    var numero2 =  Number(in_numero2.value);
+    var numero3 =  Number(in_numero3.value);
+    var qtdSorteios=1
+    if(numero1>=1 && numero1<=10 && numero2>=1 && numero2<=10 && numero3>=1 && numero3<=10){
+      for(var i=0;i!=numero1;qtdSorteios++){
+        i=parseInt(1+(Math.random()*9));
+      }
+      div_screen.innerHTML+=`Parabéns ${nome}, o seu numero ${numero1} foi sorteado após ${qtdSorteios} sorteios<br>`;
+      qtdSorteios=1
+      for(var i=0;i!=numero2;qtdSorteios++){
+        i=parseInt(1+(Math.random()*9));
+      }
+      div_screen.innerHTML+=`Parabéns ${nome}, o seu numero ${numero2} foi sorteado após ${qtdSorteios} sorteios<br>`;
+      qtdSorteios=1
+      for(var i=0;i!=numero3;qtdSorteios++){
+        i=parseInt(1+(Math.random()*9));
+      }
+      div_screen.innerHTML+=`Parabéns ${nome}, o seu numero ${numero3} foi sorteado após ${qtdSorteios} sorteios<br>`;
+    }
+    else{
+      alert("Insira um numero de 1 a 10")
+    }
+  }
+  </script>
+    
+  
+
+ 
+
+
+
+
+</script>

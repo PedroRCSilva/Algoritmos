@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img{
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Clique no botão</h2>
+  <button onclick="sortearNumero()">Sortear nota para o aluno</button>
+  <div id="div_screen"></div>
+</body>
+</html>
+<script>
+  function sortearNumero(){
+    var numeroSorteado= (Math.random()*10)+0.001;
+      div_screen.innerHTML=`Nota do aluno é ${numeroSorteado.toFixed(2)}`;
+    }
+
+  
+</script>

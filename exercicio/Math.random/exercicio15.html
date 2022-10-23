@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      width: 150px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button onclick="sortearTemperatura()">Sortear temperatura</button>
+  <br><br>
+  
+  <div id="div_screen"></div>
+</body>
+
+</html>
+<script>
+
+  function sortearTemperatura() {
+    var temperatura = (Math.random()*40)-20;
+    div_screen.innerHTML=`TEMPERATURA SORTEADA:${temperatura.toFixed(2)}<br>`;
+   if(temperatura<1){
+    div_screen.innerHTML+=`Dá para conservar qualquer alimento`;
+    }
+    else if(temperatura<=10){
+      div_screen.innerHTML+=`Conserva a maioria dos alimentos`;
+
+    }
+    else{
+      div_screen.innerHTML+=`Estraga a maioria dos alimentos`;
+    }
+  }
+  </script>
+    
+  
+
+ 
+
+
+
+
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      width: 150px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Informe o seu numero da sorte entre 0 e 100</h2>
+  <input type="text" id="in_numero"><br>
+  <button onclick="acharNumero()">Valendo!</button>
+  <br><br>
+  
+  <div id="div_screen"></div>
+</body>
+
+</html>
+<script>
+
+  function acharNumero() {
+    var contadora=1
+    var numero=0;
+    for(contadora;numero!=Number(in_numero.value);contadora++){
+    numero = parseInt(Math.random()*100);
+    }
+    div_screen.innerHTML=`Foram necessários ${contadora} sorteios`
+    
+  }
+
+ 
+
+
+
+
+</script>

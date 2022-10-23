@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img{
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Clique no botão</h2>
+  <button onclick="sortearNumero()">Jogar</button>
+  <div id="div_screen"></div>
+</body>
+</html>
+<script>
+  function sortearNumero(){
+    var numeroSorteado= parseInt(1+Math.random()*2);
+    var imagem= '';
+
+    if(numeroSorteado==1){
+      imagem='https://www.playclick.com.br/jogo_jokenpo/img/tesoura.png';
+     }
+     else if(numeroSorteado==2){
+      imagem='https://www.imagemhost.com.br/images/2021/01/12/pedra.png'
+     }
+     else {
+      imagem='https://www.playclick.com.br/jogo_jokenpo/img/papel.png'
+     }
+    
+      div_screen.innerHTML=`<img src=${imagem} width:100px>`;
+    }
+
+  
+</script>
