@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body id="inicial">
+  <h2>ANÁLISE DE PERFORMANCE DO ALUNO</h2>
+  Entre com a nome do aluno:
+  <input type="text" id="in_nome"><br>
+  Entre com a nota do aluno na AC1:
+  <input type="text" id="in_nota1"><br>
+  Entre com a nota do aluno na AC2:
+  <input type="text" id="in_nota2"><br>
+  Entre com a nota do aluno na AC3:
+  <input type="text" id="in_nota3"><br>
+  <button onclick="registrarNota()">REGISTRAR</button>
+  <button onclick="limparConteudo()">ANALISAR NOTA</button>
+  <div id="div_resultado"></div>
+
+</body>
+
+</html>
+<script>
+
+
+  var aluno = []
+
+  function registrarNota() {
+    div_resultado.innerHTML = "";
+    var inputNome = in_nome.value;
+    var inputNota1 = Number(in_nota1.value);
+    var inputNota2 = Number(in_nota2.value);
+    var inputNota3 = Number(in_nota3.value);
+
+    if (inputNome != "" && inputNota1 != "" && inputNota2 != "" && inputNota3 != "") {
+      aluno.push({
+        nome: inputNome,
+        ac1: inputNota1,
+        ac2: inputNota2,
+        ac3: inputNota3,
+      })
+
+      for (var i = aluno.length - 1; i >= 0; i--) {
+        div_resultado.innerHTML += `${aluno[i].nome} tem a nota ${aluno[i].ac1} na AC1, ${aluno[i].ac2} AC2 e ${aluno[i].ac3} na AC3<br>`;
+      }
+    }
+    else {
+      alert("Informe todos os campos!")
+    }
+  }
+
+  function limparConteudo() {
+    inicial.innerHTML = `<h2>ANÁLISE DE PERFORMANCE DO ALUNO</h2>
+  Entre com os intervalos das notas:
+  <input type="text" id="in_intervalo1" value="0">
+  <input type="text" id="in_intervalo2" value="10">
+
+  <br>
+  <select id="sel_prova">
+  <option value="ac1">AC1</option>
+  <option value="ac2">AC2</option>
+  <option  value="ac3">AC3</option>   
+  </select>
+
+  <button onclick="pesquisarProva()">Pesquisar por prova</button>
+  <button onclick="analisarNota()">PESQUISAR EM TODAS AS PROVAS</button><br><br><br>
+  <select id="sel_filtro">
+  <option value="nome">Nome</option>
+  <option value="maior">Nota maior que</option>
+  <option value="menor">Nota menor que</option>  
+  </select>
+  <input id="in_filtro"></input>
+
+  <button onclick="filtro()">FILTRAR VALORES</button>
+    <div id="div_resultadoFiltro"></div>
+    <br><br><br>
+   <div id="div_resultado"></div>
+ `;
+  }
+
+  function analisarNota() {
+    div_resultado.innerHTML = "";
+    var alunoIntervalo = [];
+    var intervalo1 = Number(in_intervalo1.value);
+    var intervalo2 = Number(in_intervalo2.value);
+    var soma = 0;
+    var numeroAnteriorCaro = 0;
+    var numeroAnteriorBarato = aluno[0].ac1;
+
+
+    if (intervalo1 >= 0 && intervalo1 <= 10 && intervalo2 >= 0 && intervalo2 <= 10 && intervalo1 <= intervalo2) {
+      for (var i = 0; i < aluno.length; i++) {
+        if (aluno[i].ac1 >= intervalo1 && aluno[i].ac1 <= intervalo2) {
+          alunoIntervalo.push(aluno[i]);
+          if (numeroAnteriorCaro < aluno[i].ac1) {
+            numeroAnteriorCaro = aluno[i].ac1;
+          }
+
+          if (numeroAnteriorBarato > aluno[i].ac1) {
+            numeroAnteriorBarato = aluno[i].ac1;
+          }
+
+          div_resultado.innerHTML += `O aluno ${aluno[i].nome} ficou com a nota ${aluno[i].ac1} na Avaliação continuada 1<br>`;
+          soma += aluno[i].ac1;
+        }
+      }
+
+      for (var i = 0; i < aluno.length; i++) {
+        if (aluno[i].ac2 >= intervalo1 && aluno[i].ac2 <= intervalo2) {
+          alunoIntervalo.push(aluno[i]);
+
+          if (numeroAnteriorCaro < aluno[i].ac2) {
+            numeroAnteriorCaro = aluno[i].ac2;
+          }
+
+          if (numeroAnteriorBarato > aluno[i].ac2) {
+            numeroAnteriorBarato = aluno[i].ac2;
+          }
+
+          div_resultado.innerHTML += `O aluno ${aluno[i].nome} ficou com a nota ${aluno[i].ac2} Avaliação continuada 2<br>`;
+          soma += aluno[i].ac2;
+
+        }
+      }
+
+
+      for (var i = 0; i < aluno.length; i++) {
+        if (aluno[i].ac3 >= intervalo1 && aluno[i].ac3 <= intervalo2) {
+
+          alunoIntervalo.push(aluno[i]);
+
+          if (numeroAnteriorCaro < aluno[i].ac3) {
+            numeroAnteriCaro = aluno[i].ac3;
+
+
+            if (numeroAnteriorBarato > aluno[i].ac3) {
+              numeroAnteriorBarato = aluno[i].ac3;
+            }
+
+            div_resultado.innerHTML += `O aluno ${aluno[i].nome} ficou com a nota ${aluno[i].ac3} Avaliação continuada 3<br>`;
+            soma += aluno[i].ac3;
+          }
+
+        }
+      }
+
+      div_resultado.innerHTML += `Total de alunos registrados: ${aluno.length};<br>Total de alunos listado: ${alunoIntervalo.length}<br>Maior Nota = ${numeroAnteriorCaro};<br>Menor Nota = ${numeroAnteriorBarato};<br>Média da Nota = ${soma / alunoIntervalo.length}`
+    }
+
+    else {
+      alert("INSIRA O 1° INTERVALO  MENOR QUE O 2° INTERVALO E NA FAIXA DE 0 ATÉ 10");
+    }
+
+  }
+
+  function pesquisarProva() {
+    div_resultado.innerHTML = "";
+    var prova = sel_prova.value;
+    var alunoIntervalo = [];
+    var intervalo1 = Number(in_intervalo1.value);
+    var intervalo2 = Number(in_intervalo2.value);
+    var soma = 0;
+    var numeroAnteriorCaro = 0;
+    var numeroAnteriorBarato = aluno[0].ac1;
+
+
+    if (intervalo1 >= 0 && intervalo1 <= 10 && intervalo2 >= 0 && intervalo2 <= 10 && intervalo1 <= intervalo2) {
+      if (prova == 'ac1') {
+        for (var i = 0; i < aluno.length; i++) {
+          if (aluno[i].ac1 >= intervalo1 && aluno[i].ac1 <= intervalo2) {
+            alunoIntervalo.push(aluno[i]);
+
+            if (numeroAnteriorCaro < aluno[i].ac1) {
+              numeroAnteriorCaro = aluno[i].ac1;
+            }
+
+            if (numeroAnteriorBarato > aluno[i].ac1) {
+              numeroAnteriorBarato = aluno[i].ac1;
+            }
+
+            div_resultado.innerHTML += `O aluno ${aluno[i].nome} ficou com a nota ${aluno[i].ac1} na Avaliação continuada 1<br>`;
+            soma += aluno[i].ac1;
+          }
+        }
+      }
+      else if (prova == 'ac2') {
+        for (var i = 0; i < aluno.length; i++) {
+          if (aluno[i].ac2 >= intervalo1 && aluno[i].ac2 <= intervalo2) {
+            if (alunoIntervalo[i].nome.indexOf(aluno[i].nome) < 0) {
+              alunoIntervalo.push(aluno[i]);
+
+              if (numeroAnteriorCaro < aluno[i].ac2) {
+                numeroAnteriorCaro = aluno[i].ac2;
+              }
+
+              if (numeroAnteriorBarato > aluno[i].ac2) {
+                numeroAnteriorBarato = aluno[i].ac2;
+              }
+
+              div_resultado.innerHTML += `O aluno ${aluno[i].nome} ficou com a nota ${aluno[i].ac2} Avaliação continuada 2<br>`;
+              soma += aluno[i].ac2;
+            }
+          }
+        }
+
+      }
+      else {
+        for (var i = 0; i < aluno.length; i++) {
+          if (aluno[i].ac3 >= intervalo1 && aluno[i].ac3 <= intervalo2) {
+            if (aluno[i].nome.indexOf(aluno[i].nome) < 0) {
+              alunoIntervalo.push(aluno[i]);
+
+              if (numeroAnteriorCaro < aluno[i].ac3) {
+                numeroAnteriorCaro = aluno[i].ac3;
+
+
+                if (numeroAnteriorBarato > aluno[i].ac3) {
+                  numeroAnteriorBarato = aluno[i].ac3;
+                }
+
+                div_resultado.innerHTML += `O aluno ${aluno[i].nome} ficou com a nota ${aluno[i].ac3} Avaliação continuada 3<br>`;
+                soma += aluno[i].ac3;
+                console.log(alunoIntervalo)
+              }
+            }
+          }
+        }
+      }
+      div_resultado.innerHTML += `Total de alunos registrados: ${aluno.length};<br>Total de alunos listado: ${alunoIntervalo.length}<br>Maior Nota = ${numeroAnteriorCaro};<br>Menor Nota = ${numeroAnteriorBarato};<br>Média da Nota = ${soma / alunoIntervalo.length}`
+    }
+
+    else {
+      alert("INSIRA O 1° INTERVALO  MENOR QUE O 2° INTERVALO E NA FAIXA DE 0 ATÉ 10");
+    }
+  }
+  function filtro() {
+    div_resultadoFiltro.innerHTML = "";
+    var tipoFiltro = sel_filtro.value;
+    var conteudoFiltro = in_filtro.value;
+    var intervalo1 = Number(in_intervalo1.value);
+    var intervalo2 = Number(in_intervalo2.value);
+    var resultadosPesquisa = [];
+
+
+    if (tipoFiltro == "nome" && intervalo1 >= 0 && intervalo2 <= 10) {
+      for (var i = 0; i < aluno.length; i++) {
+
+        if (conteudoFiltro === aluno[i].nome && aluno[i].ac1 >= intervalo1 && aluno[i].ac1 <= intervalo2) {
+          resultadosPesquisa.push({
+            nome: aluno[i].nome,
+            nota: aluno[i].ac1,
+            tipoProva: "Avaliação Continuada1"
+          })
+        }
+        if (conteudoFiltro == aluno[i].nome && aluno[i].ac2 >= intervalo1 && aluno[i].ac2 <= intervalo2) {
+          resultadosPesquisa.push({
+            nome: aluno[i].nome,
+            nota: aluno[i].ac2,
+            tipoProva: "Avaliação Continuada 2"
+          })
+        }
+
+        if (conteudoFiltro == aluno[i].nome && aluno[i].ac3 >= intervalo1 && aluno[i].ac3 <= intervalo2) {
+          resultadosPesquisa.push({
+            nome: aluno[i].nome,
+            nota: aluno[i].ac3,
+            tipoProva: "Avaliação Continuada 3"
+          })
+        }
+
+      }
+    }
+
+
+    if (tipoFiltro == "maior" && intervalo1 >= 0 && intervalo2 <= 10) {
+      conteudoFiltro = Number(conteudoFiltro)
+      for (var i = 0; i < aluno.length; i++) {
+
+        if (conteudoFiltro < aluno[i].ac1 && aluno[i].ac1 >= intervalo1 && aluno[i].ac1 <= intervalo2) {
+
+          resultadosPesquisa.push({
+            nome: aluno[i].nome,
+            nota: aluno[i].ac1,
+            tipoProva: "Avaliação Continuada 1"
+          })
+
+        }
+
+        if (conteudoFiltro < aluno[i].ac2 && aluno[i].ac2 >= intervalo1 && aluno[i].ac2 <= intervalo2) {
+          resultadosPesquisa.push({
+            nome: aluno[i].nome,
+            nota: aluno[i].ac2,
+            tipoProva: "Avaliação Continuada 2"
+          })
+        }
+
+        if (conteudoFiltro < aluno[i].ac3 && aluno[i].ac3 >= intervalo1 && aluno[i].ac3 <= intervalo2) {
+          resultadosPesquisa.push({
+            nome: aluno[i].nome,
+            nota: aluno[i].ac3,
+            tipoProva: "Avaliação Continuada 3"
+          })
+        }
+      }
+    }
+
+    if (tipoFiltro == "menor" && intervalo1 >= 0 && intervalo2 <= 10) {
+      conteudoFiltro = Number(conteudoFiltro)
+      for (var i = 0; i < aluno.length; i++) {
+        if (conteudoFiltro > aluno[i].ac1 && aluno[i].ac1 >= intervalo1 && aluno[i].ac1 <= intervalo2) {
+          resultadosPesquisa.push({
+            nome: aluno[i].nome,
+            nota: aluno[i].ac1,
+            tipoProva: "Avaliação Continuada 1"
+          })
+        }
+        if (conteudoFiltro > aluno[i].ac2 && aluno[i].ac2 >= intervalo1 && aluno[i].ac2 <= intervalo2) {
+
+          resultadosPesquisa.push({
+            nome: aluno[i].nome,
+            nota: aluno[i].ac2,
+            tipoProva: "Avaliação Continuada 2"
+          })
+        }
+
+        if (conteudoFiltro > aluno[i].ac3 && aluno[i].ac3 >= intervalo1 && aluno[i].ac3 <= intervalo2) {
+          resultadosPesquisa.push({
+            nome: aluno[i].nome,
+            nota: aluno[i].ac3,
+            tipoProva: "Avaliação Continuada 3",
+          })
+        }
+      }
+
+    }
+    div_resultadoFiltro.innerHTML += "RESULTADO ENCONTRADOS";
+    for (var i = 0; i < resultadosPesquisa.length; i++) {
+      div_resultadoFiltro.innerHTML += `O aluno ${resultadosPesquisa[i].nome} tirou ${resultadosPesquisa[i].nota} na ${resultadosPesquisa[i].tipoProva}<br>`;
+    }
+  }
+</script>
