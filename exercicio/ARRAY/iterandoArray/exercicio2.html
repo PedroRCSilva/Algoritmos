@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <label for="">DESTINO DA VIAJEM</label>
+  <input type="text" id="pesquisa"><br>
+  <button onclick="adicionar()">ADICIONAR</button>
+  <button onclick="verPrimeiraViagem()">PRIMEIRA VIAJEM</button>
+  <button onclick="verTerceiraViagem()">TERCEIRA VIAJEM</button>
+  <button onclick="verUltimaViagem()">ULTIMA VIAJEM</button>
+
+  <div id="div_screen"></div>
+</body>
+
+</html>
+<script>
+  var local = [];
+  
+ 
+
+  function adicionar() {
+    
+    local.push(pesquisa.value)
+  }
+  function verPrimeiraViagem() {
+    var primeiraViagem = local[0];
+    if (primeiraViagem != "") {
+      div_screen.innerHTML = `${primeiraViagem}`;
+    }
+    else {
+      div_screen.innerHTML = `Ainda não viajou`;
+    }
+  }
+
+  function verTerceiraViagem() {
+    var terceiraViagem = local[2];
+    if (terceiraViagem != "") {
+      div_screen.innerHTML = `${terceiraViagem}`;
+    }
+    else {
+      div_screen.innerHTML = `Ainda não viajou`;
+    }
+    
+  }
+
+  function verUltimaViagem() {
+    var ultimaViagem = local[local.length - 1];
+    if (ultimaViagem != "") {
+      div_screen.innerHTML = `${ultimaViagem}`;
+    }
+    else {
+      div_screen.innerHTML = `Ainda não viajou`;
+    }
+  }
+</script>

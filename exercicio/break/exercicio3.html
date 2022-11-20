@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="verMinhaSorte()">Ver minha sorte</button>
+  <div id="div_screen"></div>
+</body>
+
+</html>
+<script>
+
+  function verMinhaSorte() {
+    var contadorAmor = 0;
+    var contadorJogo = 0
+    var mensagem='';
+    div_screen.innerHTML="";
+    while (contadorJogo+contadorAmor!=21) {
+      var valorAleatorio = parseInt(1 + (Math.random() * 3));
+      
+      if (valorAleatorio == 1) {
+        div_screen.innerHTML +="<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/220px-Heart_coraz%C3%B3n.svg.png' width=100px>" ;
+        contadorAmor++;
+      }
+      else {
+        div_screen.innerHTML += "<img src='https://img.freepik.com/vetores-gratis/carta-de-baralho-as-de-paus-isolada_1308-80924.jpg' width=100px>";
+        contadorJogo++
+      }
+
+      if (contadorJogo >= 11||contadorAmor >= 11) {
+        break
+      }
+    }
+
+    if(contadorAmor>contadorJogo){
+      mensagem="Você tem mais sorte no amor";
+    }
+    else{
+      mensagem="Você tem mais sorte no jogo";
+    }
+    div_screen.innerHTML+="<br>"+mensagem;
+  }
+
+</script>

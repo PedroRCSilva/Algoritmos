@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <label for="">Informe cada projeto você criou na vida</label>
+  <input type="text" id="in_projeto"><br>
+  <button onclick="adicionarProjeto()">REGISTRAR PROJETO</button>
+  <button onclick="mostrarInverso()">MOSTRAR INVERSO</button>
+  <div id="div_screen"></div>
+</body>
+
+</html>
+<script>
+  var projeto = [];
+
+  function adicionarProjeto() {
+    projeto.push(in_projeto.value)
+    div_screen.innerHTML = ``;
+
+    if (projeto.length <= 4) {
+      div_screen.innerHTML = `Parabens estagiário! Você agora é um Junior`;
+    }
+    else if (projeto.length <= 12) {
+      div_screen.innerHTML = `Parabens você agora é Pleno! Virou depois do projeto ${projeto[4]}`;
+    }
+    else
+      div_screen.innerHTML = `Parabens você agora Senior! Virou depois do projeto ${projeto[12]}`;
+  }
+
+  function mostrarInverso() {
+
+    div_screen.innerHTML = ``;
+
+    for (var i = projeto.length - 1; i >=0; i--) {
+      div_screen.innerHTML += `${i+1} - ${projeto[i]}<br>`;
+    }
+  }
+
+</script>

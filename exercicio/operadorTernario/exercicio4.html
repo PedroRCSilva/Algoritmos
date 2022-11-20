@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <label for="">INFORME A FREQUENCIA DO ALUNO</label>
+  <input type="text" id="in_frequencia">
+  <br>
+
+  <button onclick="validarMedia()">VALIDAR MÉDIA</button>
+  <div id="div_resultado">
+
+  </div>
+</body>
+</html>
+<script>
+  function validarMedia(){
+    var frequencia = Number(in_frequencia.value);
+    
+    var total= frequencia<50 ? "https://st.depositphotos.com/2117297/2784/i/450/depositphotos_27846735-stock-photo-happy-tourist-sightseeing-city-with.jpg" : "https://cdn.xxl.thumbs.canstockphoto.com.br/tabela-aluno-senta-se-homework-foto_csp83367014.jpg";
+    
+    div_resultado.innerHTML=`<img src=${total} width="200px">`;
+  }
+
+</script>

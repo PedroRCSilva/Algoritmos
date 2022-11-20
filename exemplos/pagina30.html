@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <label for="">QUAL SOBREMESA COMEU?</label>
+  <input type="text" id="in_sobremesas">
+  <button onclick="cadastrar()">Cadastrar</button>
+  <button onclick="mostrar()">Mostrar</button>
+  <button onclick="mostrarInvertido()">Mostrar Invertido</button>
+  <button onclick="mostrarColorido()">Mostrar Colorido</button>
+
+  <div id="div_sobremesas"></div>
+  <br>
+</body>
+
+</html>
+<script>
+  var sobremesas = [];
+  function cadastrar() {
+    sobremesas.push(in_sobremesas.value)
+  }
+
+  function mostrar() {
+    div_sobremesas.innerHTML = "";
+    for (let i = 0; i < 0; i++) {
+      div_sobremesas.innerHTML += `${i + 1} - ${sobremesas[i]}<br>`;
+    }
+  }
+
+  function mostrarInvertido() {
+    div_sobremesas.innerHTML = "";
+    for (let i = sobremesas.length - 1; i >= 0; i--) {
+      div_sobremesas.innerHTML += `${i - 1} - ${sobremesas[i]}<br>`;
+    }
+  }
+
+  function mostrarColorido() {
+ 
+    var cor = "";
+    for (let i = 0; i <= sobremesas.length-1; i++) {
+      if (i % 2 == 0) {
+        cor="blue";
+      }
+      
+      div_sobremesas.innerHTML += `<span style="color:${cor}">${i + 1} </span>- ${sobremesas[i]}<br>`;
+      
+    }
+  }
+
+
+
+
+</script>

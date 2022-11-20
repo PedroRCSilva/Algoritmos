@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body id="inicial">
+  <h2>ANÁLISE DE PERFORMANCE DO ALUNO</h2>
+  Entre com a nome do aluno:
+  <input type="text" id="in_nome"><br>
+  Entre com a nota do aluno:
+  <input type="text" id="in_nota"><br>
+  <button onclick="registrarNota()">REGISTRAR</button>
+  <button onclick="limparConteudo()">ANALISAR NOTA</button>
+  <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+
+
+  var nome = [];
+  var nota = [];
+  function registrarNota() {
+    div_resultado.innerHTML = "";
+    var inputNome = in_nome.value;
+    var inputNota = Number(in_nota.value);
+
+    if (inputNome != "" && inputNota != "") {
+      nome.push(inputNome);
+      nota.push(inputNota);
+      for (var i = nome.length - 1; i >= 0; i--) {
+        div_resultado.innerHTML += `${nome[i]} tem a nota ${nota[i]}<br>`;
+      }
+    }
+    else {
+      alert("Informe todos os campos!")
+    }
+  }
+
+  function limparConteudo() {
+    inicial.innerHTML = `<h2>ANÁLISE DE PERFORMANCE DO ALUNO</h2>
+  Entre com os intervalos das notas:
+  <input type="text" id="in_intervalo1">
+  <input type="text" id="in_intervalo2">
+  <button onclick="analisarNota()">PESQUISAR</button>
+  <div id="div_resultado"></div>
+  `;
+  }
+  function analisarNota() {
+    var alunoIntervalo = [];
+    var intervalo1 = Number(in_intervalo1.value);
+    var intervalo2 = Number(in_intervalo2.value);
+    var soma = 0;
+    var numeroAnteriorCaro = 0;
+    var numeroAnteriorBarato = nota[0];
+    var numeroCaro = 0;
+    var numeroBarato = 0;
+
+    if (intervalo1 >= 0 && intervalo1 <= 10 && intervalo2 >= 0 && intervalo2 <= 10 && intervalo1 <= intervalo2) {
+      for (var i = 0; i < nota.length; i++) {
+        if (nota[i] >= intervalo1 && nota[i] <= intervalo2) {
+          console.log(nota[i]);
+          alunoIntervalo.push(nota);
+          div_resultado.innerHTML += `O aluno ${nome[i]} ficou com a nota ${nota[i]}<br>`;
+
+          if (numeroAnteriorCaro < nota[i]) {
+            numeroAnteriorCaro = nota[i];
+          }
+
+          if (numeroAnteriorBarato > nota[i]) {
+            numeroAnteriorBarato = nota[i];
+          }
+          soma += nota[i];
+        }
+      }
+
+      div_resultado.innerHTML += `Total de alunos registrados: ${nome.length};<br>Total de alunos listado: ${alunoIntervalo.length}<br>Maior Nota = ${numeroAnteriorCaro};<br>Menor Nota = ${numeroAnteriorBarato};<br>Média da Nota = ${soma / alunoIntervalo.length}`
+    }
+
+    else {
+      alert("INSIRA O 1° INTERVALO  MENOR QUE O 2° INTERVALO E NA FAIXA DE 0 ATÉ 10");
+    }
+
+  }
+</script>

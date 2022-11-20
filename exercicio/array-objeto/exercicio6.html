@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <label for="">Informe um numero</label>
+  <input type="text" id="in_numero"><br>
+  <button onclick="guardarNumero()">Analisar histórico de numeros</button><br><br>
+  <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+
+  var numerosInseridos = [];
+
+  function guardarNumero() {
+    div_resultado.innerHTML = "";
+    var numero = Number(in_numero.value);
+    numerosInseridos.push(numero)
+    var numeroMenor = numerosInseridos[0];
+    var numeroMaior = 0;
+    for (var i = 0; i < numerosInseridos.length; i++) {
+      if (numeroMaior < numerosInseridos[i]) {
+        numeroMaior = numerosInseridos[i];
+      }
+
+      if (numeroMenor > numerosInseridos[i]) {
+        numeroMenor = numerosInseridos[i];
+      }
+
+      div_resultado.innerHTML += `${i + 1}° numero é ${numerosInseridos[i]}<br>`;
+    }
+
+    div_resultado.innerHTML += `O MAIOR NUMERO É ${numeroMaior}<br> O MENOR NUMERO É ${numeroMenor}`;
+  }
+
+
+</script>

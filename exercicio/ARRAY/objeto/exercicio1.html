@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Informe o nome do produto</h2>
+  <input type="text" id="in_produto">
+  
+  <h2>Informe o nome do produto</h2>
+  <input type="text" id="in_preco">
+
+  <button onclick="avaliarProduto()">CADASTRAR PRODUTOS</button><br><br>
+  <button onclick="verificarProduto()">VERIFICAR PRODUTOS</button>
+<div id="div_screen"></div>
+</body>
+</html>
+<script>
+var listaProduto=[];
+  function avaliarProduto(){
+    div_screen.innerHTML="";
+    var preco=Number(in_preco.value);
+    var produto = in_produto.value;
+    if(preco!=0 || produto !=''){
+      listaProduto.push({preco,
+      produto});
+    }
+  }
+
+  function verificarProduto(){
+    div_screen.innerHTML="";
+    if(listaProduto.length>0){
+      for(var i=0;i<listaProduto.length;i++){
+        div_screen.innerHTML+=`PRODUTO: ${listaProduto[i].produto}<br>
+        PREÇO: ${listaProduto[i].preco}<br><br>`
+      }
+    }
+    else{
+      alert("inválido! Verifique o preenchimento dos campos e tente novamente!")
+    }
+  }
+</script>

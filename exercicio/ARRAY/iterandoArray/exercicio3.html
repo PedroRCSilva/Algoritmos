@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <label for="">Informe o bairro</label><br>
+  <input type="text" id="pesquisa"><br>
+  <button onclick="adicionar()">ADICIONAR</button><br><br>
+  <label for="">Informe qual moradia você deseja encontrar (number)</label><br>
+  <input type="text" id="pesquisa_number" onkeyup="pesquisar()"><br>
+  <div id="div_screen"></div>
+</body>
+
+</html>
+<script>
+  var local = [];
+
+  function adicionar() {
+    local.push(pesquisa.value)
+  }
+
+  function pesquisar() {
+    var numeroMoradia = Number(pesquisa_number.value);
+    if (numeroMoradia <=local.length) {
+      div_screen.innerHTML = local[local.length-1];
+    }
+    else {
+      div_screen.innerHTML = `Você não morou no ${pesquisa_number.value}° Bairro`;
+    }
+  }
+
+</script>

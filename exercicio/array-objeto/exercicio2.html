@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <label for="">Informe o nome de um filho seu</label><br>
+  <input type="text" id="in_filho" ><br><br>
+  <button onclick="cadastrar()">CADASTRAR</button><br><br>
+  <button onclick="atualizarCusto()">ATUALIZAR FAMILIA</button><br>
+  <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+var qtdFilho = [];
+  function cadastrar(){
+    var filho=in_filho.value;
+    if(qtdFilho.indexOf(filho)==-1){
+      qtdFilho.push(filho);
+    }
+    else{
+      alert("SEUS FILHOS NÃO PODEM TER OS NOMES IGUAIS")
+    }
+    
+  }
+
+  function atualizarCusto(){
+    var qtdFilhosLista =qtdFilho.length; 
+   var escolaParticular=qtdFilhosLista * 3000;
+
+   var escolaPublica=qtdFilhosLista * 1500;
+  
+    div_resultado.innerHTML=`Você tem ${qtdFilhosLista}<br>Seu custo mensal será aproximadamente R$${escolaParticular} se colocar eles em escola particular ou R$ ${escolaPublica} se eles estudarem em escola pública.`;
+  }
+</script>

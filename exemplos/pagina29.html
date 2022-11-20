@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <label for="">Cadastrar Fruta</label>
+  <input type="text" id="in_fruta">
+<button onclick="cadastrar()">Cadastrar</button>
+  <div id="b_total"> </div>
+  <div id="b_segunda"> </div>
+  <div id="b_quarta"> </div>
+  <div id="b_ultimo"></div>
+
+  <br>
+  <input type="text" id="in_pesquisa" placeholder="Pesquisa" onkeyup="pesquisar()">
+  <div id="div_pesquisa"></div>
+</body>
+</html>
+<script>
+  var frutas=[];
+  function cadastrar(){
+    frutas.push(in_fruta.value);
+    in_fruta.value="";
+    b_total.innerHTML="TOTAL DE FRUTAS "+frutas.length;
+    b_segunda.innerHTML="SEGUNDA FRUTA:"+frutas[1];
+    b_quarta.innerHTML="QUARTA FRUTA:"+frutas[3];
+    b_ultimo.innerHTML=frutas[length-1];
+  }
+
+  function pesquisar(){
+
+    var  caracterePesquisa= in_pesquisa.value;
+    var pesquisa=frutas.indexOf(caracterePesquisa);
+    var frase =""; 
+    if(pesquisa>=0){
+      frase=`ESTAR NA POSIÇÃO ${pesquisa}`;
+    }
+    else{
+      frase=`NÃO EXISTE`;
+    }
+
+    div_pesquisa.innerHTML=frase;
+  }
+</script>

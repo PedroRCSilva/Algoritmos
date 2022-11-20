@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <label for="">Indique o resultado</label><br>
+  <select name="" id="sel_decisao">
+    <option value="Ganhou">Vitória</option>
+    <option value="Empatou">Empate</option>
+    <option value="Perdeu">Derrota</option>
+  </select><br><br>
+  <button onclick="registrarJogo()">REGISTRAR JOGO</button><br><br>
+  <label for="">Pesquisar Jogo</label>
+
+  <input type="text" id="in_pesquisa" onkeyup="buscarResultado()">
+  <div id="div_resultado"></div>
+  <div id="div_pesquisa"></div>
+</body>
+
+</html>
+<script>
+
+  var time = {
+    vitoria: 0,
+    derrota: 0,
+    empate: 0
+  }
+  var jogos = []
+  function registrarJogo() {
+    var decisao = sel_decisao.value;
+    jogos.push(decisao)
+    if (decisao == "Ganhou") {
+      time.vitoria++;
+    }
+    else if (decisao == 'Empatou') {
+      time.empate++;
+    }
+    else {
+      time.derrota++;
+    }
+
+
+    var totalPontos = time.vitoria * 3 + time.empate;
+
+    var aproveitamento = totalPontos / (jogos.length * 3) * 100;
+    div_resultado.innerHTML =
+      `O TIME TEVE: ${time.vitoria} VITORIAS, ${time.empate} EMPATES, ${time.derrota} DERROTAS<br>
+    TOTAL DE PONTOS: ${totalPontos}<br>
+    APROVEITAMENTO : ${aproveitamento.toFixed(2)}%
+    `
+  }
+
+  function buscarResultado() {
+    var inputValor = Number(in_pesquisa.value)-1;
+    var pesquisa = jogos[inputValor];
+
+    if (pesquisa != undefined) {
+      div_pesquisa.innerHTML = `No ${inputValor+1}° jogo, o time ${pesquisa}`;
+    }
+    else {
+      div_pesquisa.innerHTML = `NÃO FOI CADASTRADO ${inputValor+1}° JOGO`
+    }
+
+  }
+</script>

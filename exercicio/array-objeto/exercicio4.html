@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <label for="">Informe o nome do Produto</label><br>
+  <input type="text" id="in_nome"><br>
+  <br>
+  <br>
+  <label>Informe o preço da compra</label><br>
+  <input type="text" id="in_preco"><br><br>
+  <button onclick="cadastrarCompra()">CADASTRAR COMPRA</button><br><br>
+
+  <div id="div_resultado"></div>
+</body>
+
+</html>
+<script>
+
+  var estoque = [];
+  var preco = [];
+
+  function cadastrarCompra() {
+    var precoProduto = Number(in_preco.value);
+    var nome = in_nome.value;
+    estoque.push(nome);
+    preco.push(precoProduto);
+    div_resultado.innerHTML =
+        `TOTAL DE COMPRAS:${estoque.length}<br><br>`;
+
+    for (var i = 0; i < preco.length; i++) {
+      div_resultado.innerHTML +=
+        `
+     PRODUTO ${estoque[i]}<br>
+     PRECO DA COMPRA R$ ${preco[i].toFixed(2)}<br>
+     PREÇO A SER VENDIDO R$ ${(preco[i] * 1.25).toFixed(2)}<br><br>
+     `
+    }
+  }
+
+</script>

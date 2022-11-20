@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>Informe o nome do produto</h2>
+  <input type="text" id="in_produto">
+
+
+  <h2>Informe o preco do produto</h2>
+  <input type="text" id="in_preco">
+
+  <h2>Informe o tipo do produto</h2>
+  <select name="" id="sel_tipo">
+    <option value="GERAIS">Gerais</option>
+    <option value="ALIMENTOS">Alimentos</option>
+    <option value="ELETRONICOS">Eletrônicos</option>
+  </select><br><br>
+
+  <div id="div_screen"></div><br>
+  <button onclick="avaliarProduto()">REGISTRAR PRODUTOS</button><br><br>
+  <button onclick="verificarProduto()">VERIFICAR PRODUTOS</button><br><br>
+
+  <label for="">PESQUISAR POR NOME</label><br><br>
+  <input type="text" id="in_pesquisar"><br><br>
+  <button onclick="filtroProduto()">Pesquisar por nome</button>
+  <br><br>
+
+  <label for="">PESQUISAR POR TIPO</label>
+  <br><br>
+  <select name="" id="sel_pesquisa_tipo">
+    <option value="GERAIS">Gerais</option>
+    <option value="ALIMENTOS">Alimentos</option>
+    <option value="ELETRONICOS">Eletrônicos</option>
+  </select><br><br>
+  <button onclick="filtroTipo()">Pesquisar por tipo</button>
+  <div id="div_encontrado">
+
+  </div>
+</body>
+
+</html>
+<script>
+  var listaProduto = [];
+
+  function avaliarProduto() {
+
+    div_screen.innerHTML = "";
+    var preco = Number(in_preco.value);
+    var produto = in_produto.value;
+    var tipo = sel_tipo.value;
+    if (preco != 0 && produto != "" && tipo != "") {
+      listaProduto.push({
+        preco,
+        produto, tipo
+      });
+    }
+    else {
+      alert("Inválido! Verifique o preenchimento dos campos e tente novamente!");
+    }
+  }
+
+  function verificarProduto() {
+    div_screen.innerHTML = "";
+    if (listaProduto.length > 0) {
+      for (var i = 0; i < listaProduto.length; i++) {
+        div_screen.innerHTML += `PRODUTO: ${listaProduto[i].produto}<br>
+        PREÇO: ${listaProduto[i].preco}<br><br>`
+      }
+    }
+    else {
+      alert("inválido! Verifique o preenchimento dos campos e tente novamente!")
+    }
+  }
+
+  function filtroProduto() {
+    div_encontrado.innerHTML = "";
+    var listaEncontrado = []
+
+    for (var i = 0; i < listaProduto.length; i++) {
+
+      if (listaProduto[i].produto == in_pesquisar.value) {
+        listaEncontrado.push(listaProduto[i].produto);
+      }
+    }
+
+    if (listaEncontrado.length >= 1) {
+      for (var i = 0; i < listaEncontrado.length; i++) {
+        div_encontrado.innerHTML += listaEncontrado[i] + "<br>";
+      }
+    }
+    else {
+      alert("Não foi encontrado nenhum item na lista");
+    }
+
+  }
+
+  function filtroTipo() {
+    div_encontrado.innerHTML = "";
+    var listaEncontrado = []
+    for (var i = 0; i < listaProduto.length; i++) {
+      if (listaProduto[i].tipo == sel_pesquisa_tipo.value) {
+        listaEncontrado.push(listaProduto[i].produto);
+      }
+    }
+
+    if (listaEncontrado.length >= 1) {
+      for (var i = 0; i < listaEncontrado.length; i++) {
+        div_encontrado.innerHTML += listaEncontrado[i] + "<br>";
+      }
+    }
+    else {
+      alert("Não foi encontrado nenhum item na lista");
+    }
+
+  }
+</script>

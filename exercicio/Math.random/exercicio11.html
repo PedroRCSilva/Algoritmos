@@ -1,64 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #img1 {
+        margin-right: 20px;
+      }
+    </style>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-#img1{
-  margin-right: 20px;
-}
-  </style>
-</head>
-
-<body>
-  <button onclick="jogar()">Jogar</button>
-  <div id="div_screen"></div>
-</body>
-
+  <body>
+    <button onclick="jogar()">Jogar</button>
+    <div id="div_screen"></div>
+  </body>
 </html>
 <script>
-
+  var contadorJogador1 = 0;
+  var contadorJogador2 = 0;
+  var contadorEmpate = 0;
   function jogar() {
     var jogador1 = 1 + parseInt(Math.random() * 3);
     var jogador2 = 1 + parseInt(Math.random() * 3);
-
-    div_screen.innerHTML = 
-    `<img src="jokenpo${jogador1}.png" id="img1">
-    <img src="jokenpo${jogador2}.png" id="img2">`;
-  
-    var mensagem = '';
-
+    var mensagem = "";
+    div_screen.innerHTML = `<img src="jokenpo${jogador1}.png" id="img1">
+      <img src="jokenpo${jogador2}.png" id="img2">`;
+      
     if (jogador1 + 1 == jogador2 || jogador1 - 2 == jogador2) {
       mensagem = "JOGADOR 1 GANHOU !";
+
       if (jogador1 == 1) {
         mensagem += "Papel cobre pedra";
-      }
-      else if (jogador1 == 2) {
+      } else if (jogador1 == 2) {
         mensagem += "Pedra quebra tesoura";
-      }
-      else {
+      } else {
         mensagem += "Tesoura corta papel";
       }
-    }
+      contadorJogador1++;
+    } 
     else if (jogador1 != jogador2) {
       mensagem = "JOGADOR 2 GANHOU !";
       if (jogador2 == 1) {
         mensagem += "<br>Papel cobre pedra";
-      }
-      else if (jogador2 == 2) {
+      } else if (jogador2 == 2) {
         mensagem += "<br>Pedra quebra tesoura";
-      }
-      else {
+      } else {
         mensagem += "<br>Tesoura corta papel";
       }
+      contadorJogador2++;
+    } else {
+      mensagem = "EMPATE";
+      contadorEmpate++;
     }
 
-    else {
-      mensagem = "EMPATE";
-    }
-    div_screen.innerHTML += "<br><br>" + mensagem;
+    div_screen.innerHTML += `<br><br>${mensagem}<br>PLACAR DO JOGO <BR>JOGADOR 1: ${contadorJogador1}<br> JOGADOR 2: ${contadorJogador2}<br> EMPATE:${contadorEmpate}`;
   }
 </script>

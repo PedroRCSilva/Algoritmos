@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <label for="">Informe qual Estudio você mais gosta</label>
+  <select name="" id="in_editora">
+    <option value="1">MARVEL</option>
+    <option value="2">DC</option>
+  </select>
+  <br>
+  <button onclick="verProgramacao()">Ver programação semanal da TV</button>
+  <div id="div_screen"></div>
+</body>
+
+</html>
+<script>
+
+  function verProgramacao() {
+    div_screen.innerHTML="";
+    var editora = Number(in_editora.value);
+    for(var contadora=1;contadora<=5;contadora++){
+      var sorteioFilme=parseInt(Math.random()*5);
+      if(sorteioFilme==editora){
+        div_screen.innerHTML=`Você vera o filme que você gosta no dia ${contadora}`;
+        break
+      }
+    }
+    if(div_screen.innerHTML==""){
+      div_screen.innerHTML="É, ou lê um livro ou assiste um filme que não gosta mesmo";
+    }
+  }
+
+
+</script>

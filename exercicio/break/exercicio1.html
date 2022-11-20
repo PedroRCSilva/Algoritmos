@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <label for="">Informe um numero da sorte de 0 a 100</label>
+  <input type="text" id="input_id">
+  <button onclick="acharNumero()">Testar minha sorte</button>
+  <div id="div_screen"></div>
+</body>
+
+</html>
+<script>
+  function acharNumero() {
+    
+      var numero = Number(input_id.value);
+      if (numero <= 100 && numero >= 0) {
+      var mensagem = "";
+      var contador = 1;
+      while (true) {
+        var numeroSorte = parseInt(Math.random() * 101);
+        if (contador >= 20) {
+          mensagem = "É, você não tem muita sorte em sorteios, pelo visto";
+          break
+        }
+        if (numero == numeroSorte) {
+          mensagem = `Seu numero saiu no sorteio ${contador}°`;
+          break
+        }
+        contador++;
+
+      }
+      div_screen.innerHTML = mensagem;
+    }
+    else {
+      alert("Insira um numero maior que 0 e menor que 100");
+    }
+  }
+</script>

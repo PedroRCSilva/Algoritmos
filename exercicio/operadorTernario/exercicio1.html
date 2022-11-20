@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <label for="">INFORME O EMAIL DO USUARIO</label>
+  <input type="text" id="in_email">
+
+  <br><br>
+  <label for="">INFORME A SENHA DO USUARIO</label>
+  <input type="text" id="in_senha">
+  <br><br>
+
+  <label for="">INFORME O CÓDIGO USUARIO</label>
+  <input type="text" id="in_codigo">
+  <br><br>
+  <button onclick="autenticar()">FAZER LOGIN</button>
+  <div id="div_resultado">
+
+  </div>
+</body>
+</html>
+<script>
+  function autenticar(){
+    var email = in_email.value;
+    var senha = in_senha.value;
+    var codigo = in_codigo.value;
+    var frase = email == 'SPTECH' && senha=='SCHOOL' || codigo =='595' ? 'Usuário autenticado com sucesso' : 'Falha na autenticação';
+    div_resultado.innerHTML=frase;
+  }
+
+</script>

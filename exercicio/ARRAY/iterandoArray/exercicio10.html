@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <label for="">Informe a linha de onibus que você pegou/label><br>
+    <input type="text" id="in_onibus"><br>
+    <button onclick="adicionarProjeto()">CADASTRAR LINHA</button><br><br>
+    <label for="">Pesquisar</label><br>
+    <input type="text" id="in_pesquisa" ><br>
+    <button onclick="pesquisarLinha()">Pesquisar</button>
+    <div id="div_screen"></div>
+    <div id="div_linhas"></div>
+</body>
+
+</html>
+<script>
+  var linhasUsadas = [];
+  function adicionarProjeto() {
+    linhasUsadas.push(in_onibus.value)
+    div_screen.innerHTML = ``;
+    for (var i = linhasUsadas.length - 1; i >= 0; i--) {
+      div_screen.innerHTML += `${i + 1} - ${linhasUsadas[i]}<br>`;
+    }
+
+  }
+
+  function pesquisarLinha() {
+    var linhasEncontradas = [];
+    div_linhas.innerHTML = ``;
+    for (i = 0; i < linhasUsadas.length; i++) {
+      if (linhasUsadas[i] == in_pesquisa.value) {
+        linhasEncontradas.push(i+1);
+      }
+    }
+
+    if (linhasEncontradas.length <=0) {
+      div_linhas.innerHTML = "Você nunca pegou essa linha";
+    }
+    else {
+      div_linhas.innerHTML = `VOCÊ PEGOU ${linhasEncontradas.length} VEZES ESSA LINHA, NESSA ORDEM ${linhasEncontradas}`;
+    }
+  }
+
+
+
+
+
+</script>

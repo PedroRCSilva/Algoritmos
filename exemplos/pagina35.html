@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício</title>
+</head>
+<body>
+  <input type="text" id="in_nome"><br><br>
+  <input type="text" id="in_contatos"><br>
+  <button onclick="cadastrar()">CADASTRAR</button>
+  <button onclick="exibir()">EXIBIR</button>
+
+<div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    var lista=[]
+  function cadastrar()
+  {
+    lista.push({nome:in_nome.value,contato:in_contatos.value});
+  }
+  function exibir(){
+    for(var i=0;i<lista.length;i++){
+      div_mensagem.innerHTML+=`NOME: ${lista[i].nome},Contatos:${lista[i].contato}<br>`
+    }
+  }
+  
+
+ 
+</script>
