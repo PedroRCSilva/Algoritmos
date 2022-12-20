@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXERICICO ANANIAS</title>
+</head>
+
+<body>
+  <label for="">INFORME O CÓDIGO DO PRODUTO</label>
+  <input id="codigo_produto"></input><br><br>
+
+  <label for="">INFORME NOME DO PRODUTO</label>
+  <input id="nome_produto"></input><br><br>
+
+  <label for="">INFORME A QUANTIDADE DO ESTOQUE</label>
+  <input id="quantidade_produto"></input><br><br>
+
+  <button onclick="cadastrarProduto()">REGISTRAR</button>
+  <button onclick="exibirEstoque()">VER ESTOQUE</button>
+  <div id="div_estoque"></div>
+</body>
+
+</html>
+
+<script>
+
+  var estoque = [];
+  function cadastrarProduto() {
+    var codigoProduto = codigo_produto.value;
+    var nomeProduto = nome_produto.value
+    var quantidadeProduto = Number(quantidade_produto.value)
+    var validacao;
+    var validacaoCodigo = codigoProduto == "";
+    var validacaoNome = nomeProduto == "";
+    var validacaoQuantidade = quantidadeProduto <= 0;
+
+    if (!validacaoCodigo && !validacaoNome && !validacaoQuantidade) {
+      for (var i = 0; i < estoque.length; i++) {
+        if (codigoProduto == estoque[i].codigoProduto) {
+          validacao = i;
+          break
+        }
+      }
+
+      if (validacao == undefined) {
+        estoque.push({
+          codigoProduto,
+          nomeProduto,
+          quantidadeProduto,
+        })
+
+        alert(`PRODUTO DE CÓDIGO ${codigoProduto} FOI CADASTRADO NO SISTEMA`);
+      }
+      else {
+        estoque[i].quantidadeProduto += quantidadeProduto;
+        alert(`PRODUTO DE CÓDIGO ${codigoProduto} TEVE SUA QUANTIDADE AUMENTADA`);
+      }
+    }
+    else {
+      div_estoque.innerHTML = "";
+      validacaoCodigo ? div_estoque.innerHTML += "CODIGO INVÁLIDO PARA PRODUTO<br>" : "";
+      validacaoNome ? div_estoque.innerHTML += "NOME INVÁLIDO PARA PRODUTO<br>" : "";
+      validacaoQuantidade ? div_estoque.innerHTML += "QUANTIDADE INVÁLIDA PARA PRODUTO<br>" : "";
+    }
+  }
+
+  function exibirEstoque() {
+    div_estoque.innerHTML = "";
+    for (var i = 0; i < estoque.length; i++) {
+      div_estoque.innerHTML += `CODIGO: ${estoque[i].codigoProduto}<br>NOME:${estoque[i].nomeProduto}<br>QUANTIDADE DO PRODUTO: ${estoque[i].quantidadeProduto}<br>`
+    }
+  }
+
+</script>

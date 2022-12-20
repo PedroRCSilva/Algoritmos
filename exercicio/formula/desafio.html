@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <label for="">INFORME O NOME DO PILOTO</label><br>
+  <input type="text" id="in_piloto"><br><br>
+
+  <button onclick="registrarPiloto()">REGISTRAR</button><br><br>
+  <button onclick="realizarCorrida()">REALIZAR CORRIDA</button>
+
+  <div id="div_volta"></div>
+
+  <div id="div_podio"></div>
+</body>
+
+</html>
+
+<script>
+
+  var piloto = [];
+
+  function registrarPiloto() {
+    var pilotoCadastro = in_piloto.value;
+    if (piloto.length < 12) {
+      piloto.push(
+        {
+          piloto: pilotoCadastro,
+          combustivel: 75,
+          tempoVoltas: 0,
+        }
+      );
+
+    }
+    else {
+      alert("JÁ FORAM CADASTRADOS 12 PILOTOS");
+    }
+
+  }
+
+  function realizarCorrida() {
+    if (piloto.length >= 5 && piloto.length <= 12) {
+      var velocidade;
+      var calculo;
+      var calculoCombustivel;
+      var pilotosAtivos = [];
+
+      for (var voltas = 1; voltas <= 15; voltas++) {
+        for (var i = 0; i < piloto.length; i++) {
+          velocidade = parseInt(210 + Math.random() * 80)
+          calculo = 20 / velocidade * 60;
+          calculoCombustivel = (((velocidade - 210) / 210) * 4.2) + 4.2;
+          piloto[i].tempoVoltas += calculo;
+          piloto[i].combustivel -= calculoCombustivel;
+          div_volta.innerHTML += `VOLTA ${voltas} PILOTO ${piloto[i].piloto} TEMPO DA VOLTA:${(calculo).toFixed(2)} COMBUSTIVEL: ${piloto[i].combustivel.toFixed(1)}<br>`;
+          if (piloto[i].combustivel > 0 && voltas==15) {
+            pilotosAtivos.push(piloto[i]);
+          }
+        }
+      }
+      console.log(piloto)
+      console.log(pilotosAtivos)
+      var primeiro=pilotosAtivos[0];
+      var podio=[];
+      var posicao=[];
+    
+      for(var i =0;i<3;i++){
+        for(var index =0;index<pilotosAtivos.length;index++){
+          primeiro=pilotosAtivos[0];
+          if(primeiro.tempoVoltas>pilotosAtivos[i].tempoVoltas && pilotosAtivos[i]!=""){
+            primeiro=pilotosAtivos[i];
+            posicao.push(index);
+          }
+        }
+        console.log(primeiro);
+      }
+
+
+        div_podio.innerHTML+=`1 Lugar ${pilotosAtivos[0].piloto} - TEMPO TOTAL: ${(pilotosAtivos[0].tempoVoltas).toFixed(2)}<br>`;
+        div_podio.innerHTML+=`2 Lugar ${pilotosAtivos[1].piloto} - TEMPO TOTAL: ${(pilotosAtivos[1].tempoVoltas).toFixed(2)}<br>`;
+        div_podio.innerHTML+=`3 Lugar ${pilotosAtivos[2].piloto} - TEMPO TOTAL: ${(pilotosAtivos[2].tempoVoltas).toFixed(2)}<br>`;
+      
+// OLÁ JP N CONSEGUIR TERMINAR ESSA ULTIMA PARTE DE CLASSIFICAR NO PÓDIO, TENTEI USAR O ALGORITMO BULBBLE SORT MAS SÓ DESCOBRI NOS 45 DO SEGUNDO TEMPO, DESCULPA :(
+    }
+    else {
+      alert("INSIRA NO MINIMOS 5 PILOTOS E NO MÁXIMO 12 PILOTOS PARA PROSSEGUIR")
+    }
+  }
+
+</script>
